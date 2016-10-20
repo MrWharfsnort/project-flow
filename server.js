@@ -10,6 +10,8 @@ var PORT = process.env.port || 8000;
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost");
 
+var User = require('./UserSchema.js')(mongoose);
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -29,7 +31,7 @@ app.post('/api/login', (req, res) => {
    // else res.send status 'invalid'
 });
 
-app.post('/api/signup', (req, res) => {
+app.post('/api/register', (req, res) => {
    res.send({status: 'added', message: 'user added successfully'});
 });
 

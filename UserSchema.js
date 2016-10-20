@@ -1,14 +1,13 @@
 /* jshint esversion: 6 */
-module.exports = (mongoose, ChunkSchema) => {
+module.exports = (mongoose, Chunk) => {
    var UserSchema = new mongoose.Schema({
       name: String,
-      password: String,
       email: String,
-      chunks: [Chunks]
+      password: String
+      // chunks: [Chunk]
    });
 
    var User = mongoose.model('User', UserSchema);
 
    return User;
 }
-
