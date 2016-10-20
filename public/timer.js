@@ -5,14 +5,15 @@ var startDate;
 
 function startTime() {
 	timeStamps.push(Date.now());
-	console.log(timeStamps);
+	startDate = new Date();
+	$("#takeBreak").click(startBreak);
 }
 
 
 function startBreak() {
 	timeStamps.push(Date.now());
 	$("#timer").css("display", "none");
-	$("#break").css("display", "none");
+	$("#break").css("display", "block");
 }
 
 function endBreak() {
@@ -23,11 +24,10 @@ function endBreak() {
 }
 
 function endTime() {
-	//calculate total working time
-	//calculate the starting date and time
-	//hide timer div
-	//display finished survey div
 	timeStamps.push(Date.now());
 	totalTime = timeStamps[timeStamps.length - 1] - timeStamps[0];
-
+	totalTime = Math.floor(totalTime/1000);
+	$("#timer").css("display", "none");
+	$("#finished").css("display", "block");
+	console.log(totalTime);
 }
