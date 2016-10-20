@@ -4,7 +4,6 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
-
 var PORT = process.env.port || 8000;
 
 mongoose.Promise = global.Promise;
