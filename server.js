@@ -7,6 +7,9 @@ var app = express();
 
 var PORT = process.env.port || 8000;
 
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost");
+
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -15,7 +18,6 @@ app.use(session({
    resave: false,
    saveUninitialized: false
 }));
-
 
 app.get('/', (req, res) => {
    res.sendFile(__dirname + './index.html');
