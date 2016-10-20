@@ -6,30 +6,34 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="./jquery-3.1.1.min.js"></script>
 	<script src="./main.js"></script>
+	<script src="./timer.js"></script>
 </head>
 <body>
-    <h1>(page works)</h1>
 	<div id="login">
 		Username: <input type="text" id="username">
 		Password: <input type="password" id="password">
+		Email: <input type="text" id="email">
 		<button id="signIn">Login</button>
 		<button id="signUp">Sign Up</button>
+
 	</div>
 
 	<div id="timer" style="display: none">
-	<!-- This is the div to display once user logs in, here they can start a tiime chunk, take a break, or mark the completion of a task -->
-	<!-- Marking a task complete will prompt a quick question about task???? -->
+	<!-- This is the div to display once user logs in, here they can start a tiime chunk, take a break -->
 		<button id="startTimer">Start Timer</button>
 		<button id="break">Take A Break</button>
-		<button id="task">Task Completed</button>
+		
 	</div>
 
 	<div id="break" style="display: none">
 		<!-- break survey goes here -->
+		<!-- optional task input field -->
+		<button id="endBreak">Back to Work</button>
 	</div>
 
 	<div id="finished" style="display: none">
 		<!-- finished time chuck survey goes here -->
+		<!-- optional task input field -->
 	</div>
 
 	<div id="data" style="display: none">
