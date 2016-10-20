@@ -27,6 +27,10 @@ app.post('/api/login', (req, res) => {
    // else res.send status 'invalid'
 });
 
+app.post('/api/signup', (req, res) => {
+   res.send({status: 'added', message: 'user added successfully'});
+});
+
 
 app.use((req, res, next) => {
    res.status(404);
