@@ -24,6 +24,11 @@ $(document).ready(function () {
 		$("#endTimer").click(endTime); //add click listener
 	});
 
+	$("#logout").click(function() {
+		$.post("/api/logout", function (res) {
+			window.location = "/";
+		});
+	});
 
 	$("#endBreak").click(endBreak); //click listener to end break on break div
 

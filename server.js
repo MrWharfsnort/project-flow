@@ -61,7 +61,7 @@ app.post('/api/login', (req, res) => {
 });
 
 app.post('/api/logout', (req, res) => {
-   delete req.session.user;
+   delete req.session.email;
    res.send({status: 'logout', message: 'succesfully logged out'});
 });
 
