@@ -48,10 +48,11 @@ app.post('/api/login', (req, res) => {
       } else if (user[0].password !== req.body.password) {
          res.status(401);
          res.send({status: 'invalid', message: 'invalid username/password'});
-      } else {
-         res.send({status: 'success', message: 'Login successful'});
+      } else { 
          req.session.email = user[0].email;
          req.session.password = user[0].password;
+         console.log(req.session);
+         res.send({status: 'success', message: 'Login successful'});
       }
    });
 });
