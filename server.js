@@ -101,6 +101,22 @@ app.post('/api/chunk/new', (req, res) => {
    res.send({chunkId: chunkId});
 });
 
+app.post('/api/chunk/interval', (req, res) => {
+   var interval = new Interval({
+      timeFromStart: req.body.timeFromStart,
+      perceivedChallenge: req.body.perceivedChallenge,
+	   percievedSkill: req.body.perceivedSkill,
+	   activity: req.body.activity,
+	   caffeine: req.body.caffeine,
+	   snack: req.body.snack
+   });
+
+   Chunk.findOneAndUpdate({_id: req.body.chunkId}, { $push: { intervals: interval } }, (err) => {
+      if (err) { console.log(err); }
+   });
+
+});
+
 // serve up static content in the public folder
 // this allows us to bring in our own js and css files
 app.use(express.static('public'));
