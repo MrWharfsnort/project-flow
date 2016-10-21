@@ -4,7 +4,9 @@ module.exports = (mongoose) => {
 	timeFromStart: Number,//values the x of the graph, called labels to chartist
 	perceivedChallenge: Number,//1-10 polled at begining an end,
 	percievedSkill: Number,//1-10 polled at begining an end,
-	activity: String
+	activity: String,
+	caffeine: Number,
+	snack: Boolean
    });
 
    var Interval = mongoose.model('Interval', IntervalSurveySchema);

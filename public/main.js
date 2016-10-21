@@ -52,6 +52,9 @@ $(document).ready(function () {
 
 	$("#submitSurvey").click(function(){
 		var survey = {
+			breaksTaken: breakCount,
+			timeSpent: totalTime,
+			timeOfDay: startDate,
 			sleep: $("#sleep").val(),
 			meals: $("#meals").val(),
 			intervals: intervalSurveys
