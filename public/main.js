@@ -1,8 +1,6 @@
 $(document).ready(function () {
 	var chunkId;
 
-
-
 	$("#startTimer").click(function (evt) {
 		startTime();  //calls startTime in timer.js
 		$(evt.target).css("display", "none"); //hide start timer button
@@ -20,7 +18,10 @@ $(document).ready(function () {
 	});
 
 	$("#endBreak").click(function(){ //click listener to end break on break div
+		endBreak();
 		$.post("/api/chunk/interval", {
+			chunkId: chunkId,
+			timeFromStart: breakTime,
 			challenge: $("#challenge").val(),
 			skill: $("#skill").val(),
 			activity: $("#activity").val(),
@@ -29,7 +30,6 @@ $(document).ready(function () {
 		}, function(res) {
 			console.log(res);
 		});
-		endBreak();
 	});
 
 	$("#yesBreak").click(startBreak); //click listener on autoBreak div
@@ -46,8 +46,7 @@ $(document).ready(function () {
 			timeSpent: totalTime,
 			timeOfDay: startDate,
 			sleep: $("#sleep").val(),
-			meals: $("#meals").val(),
-			intervals: intervalSurveys
+			meals: $("#meals").val()
 		};
 		console.log(survey);
 		$.post("/api/chunk/done", survey, function(res){
