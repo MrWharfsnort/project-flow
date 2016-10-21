@@ -92,35 +92,13 @@ app.post('/api/register', (req, res) => {
    });
 });
 
-app.post('/api/survey', (req, res) => {
-   console.log("intervals is: " + req.body.intervals);
-   console.log(req.body);
-   var intervals = [];
-   for (var i =0; i < req.body.breaksTaken; i++) {
-      var survey = new Interval({
-         perceivedChallenge: req.body["intervals[" + i + "][challenge]"],
-         perceivedSkill: req.body["intervals[" + i + "][skill]"],
-         activity: req.body["intervals[" + i + "][activity]"],
-         caffeine: req.body["intervals[" + i + "][caffeine]"],
-         snack: req.body["intervals[" + i + "][food]"]
-      });
-      intervals.push(survey);
-      console.log("survey is" + survey);
-   }
-   console.log(intervals);
-   var newChunk = new Chunk({
-      timeSpent: req.body.timeSent,
-      timeOfDay: req.body.timeOfDay,
-      hoursSlept: req.body.sleep,
-      meals: req.body.meals,
-      intervals: intervals
-   });
-   console.log(newChunk);
-   User.findOneAndUpdate({email: req.session.email}, {$push:{chunks: newChunk}}, (err, data) => {
-
-      if(err) {console.log(err);}
-   });
-   res.send({message: 'you posted a survey'});
+app.post('/api/chunk/new', (req, res) => {
+   var chunk = new Chunk();
+   chunk.save();
+   console.log('new chunk created: ', chunk);
+   var chunkId = chunk._id;
+   console.log('new chunk id: ', chunkId);
+   res.send({chunkId: chunkId});
 });
 
 // serve up static content in the public folder
