@@ -114,7 +114,15 @@ app.post('/api/chunk/interval', (req, res) => {
    Chunk.findOneAndUpdate({_id: req.body.chunkId}, { $push: { intervals: interval } }, (err) => {
       if (err) { console.log(err); }
    });
+});
 
+app.post('/api/chunk/done', (req, res) => {
+   Chunk.findOneAndUpdate({_id: req.body.chunkId}, {
+      timeSpent: req.body.timeSpent,
+      timeOfDay: req.body.timeOfDay,
+      hoursSlept: req.body.hoursSlept,
+      mealsEaten: req.body.mealsEaten
+   });
 });
 
 // serve up static content in the public folder
