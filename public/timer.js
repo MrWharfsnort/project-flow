@@ -27,6 +27,7 @@ function startBreak() {
 function endBreak() {
 	// todo take in input fields
 	timeStamps.push(Date.now()); //push end of break timestamp
+	breakTime = timeStamps[timeStamps.length - 1] - timeStamps[0];
 	$("#break").css("display", "none"); //hide the break div
 	$("#timer").css("display", "block"); //show the timer div
 	setAutoBreak(2700000); //reset that autoBreak timeout
