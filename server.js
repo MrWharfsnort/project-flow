@@ -30,7 +30,11 @@ app.use(session({
 }));
 
 app.get('/', (req, res) => {
-   res.sendFile(__dirname + './index.html');
+   if (req.session) {
+      res.sendFile(__dirname + './index.html');
+   } else {
+      res.sendFile(__dirname + './login.html');
+   }
 });
 
 app.post('/api/login', (req, res) => {
