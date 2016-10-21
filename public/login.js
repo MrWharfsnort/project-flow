@@ -7,9 +7,7 @@ $(document).ready(function(){
 			password: pw,
 			email: email
 		}, function(response){
-			if(response.status === "success") { //if logged in 
-				$("#login").css("display", "none"); //hide login div
-				$("#timer").css("display", "block"); //display timer div
+			if(response.status === "success") { //if logged in
 			}
 		});
 	});

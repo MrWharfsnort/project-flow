@@ -24,17 +24,15 @@ app.use(session({
    saveUninitialized: false
 }));
 
-// serve up static content in the public folder
-// this allows us to bring in our own js and css files
-app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-   console.log('a');
-   if (req.session) {
-      res.sendFile(__dirname + '/index.html');
-   } else {
-      res.redirect(__dirname + '/login.html');
+   console.log('session email', req.session.email);
+   if (!req.session.email) {
+      res.sendFile(__dirname + '/public/login.html');
+      return;
    }
+   console.log('blah');
+   res.sendFile(__dirname + '/public/index.html');
 });
 
 
@@ -54,9 +52,10 @@ app.post('/api/login', (req, res) => {
          res.status(401);
          res.send({status: 'invalid', message: 'invalid username/password'});
       } else {
-         res.send({status: 'success', message: 'Login successful'});
          req.session.email = user[0].email;
-         req.session.password = user[0].password;
+         console.log(req.session.email);
+         res.redirect('/');
+         return;
       }
    });
 });
@@ -94,8 +93,9 @@ app.post('/api/register', (req, res) => {
    });
 });
 
-
-
+// serve up static content in the public folder
+// this allows us to bring in our own js and css files
+app.use(express.static('public'));
 
 // 404 error handling
 app.use((req, res, next) => {
