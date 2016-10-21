@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="./main_style.css">
+	<script src="./jquery-3.1.1.min.js"></script>
+	<script src="login.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div id="login">
+			<!-- login div -->
+			    <div class="form-group">
+			    	<label for="email">Email:</label>
+					<input type="email" class="form-control" id="email" placeholder="Enter email">
+			    </div>
+			    <div class="form-group">
+					<label for="pwd">Password:</label>
+					<input type="password" class="form-control" id="password" placeholder="Enter password">
+					<button id="signIn" class="btn btn-secondary">Login</button>
+					<button id="signUp" class="btn btn-secondary">Register</button>
+			    </div>
+			</div>
+
+			<div id="newUser" style="display: none">
+			<!-- div for registering a new user -->
+				Name: <input type="text" id="name">
+				Password: <input type="password" id="newPassword">
+				Email: <input type="text" id="newEmail">
+				<button id="addUser" class="btn btn-secondary">Register</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
