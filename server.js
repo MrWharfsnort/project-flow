@@ -53,9 +53,7 @@ app.post('/api/login', (req, res) => {
          res.send({status: 'invalid', message: 'invalid username/password'});
       } else {
          req.session.email = user[0].email;
-         console.log(req.session.email);
-         res.redirect('/');
-         return;
+         res.send({status:"success"});
       }
    });
 });
