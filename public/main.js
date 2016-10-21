@@ -1,8 +1,6 @@
 $(document).ready(function () {
 	var chunkId;
 
-
-
 	$("#startTimer").click(function (evt) {
 		startTime();  //calls startTime in timer.js
 		$(evt.target).css("display", "none"); //hide start timer button
@@ -46,8 +44,7 @@ $(document).ready(function () {
 			timeSpent: totalTime,
 			timeOfDay: startDate,
 			sleep: $("#sleep").val(),
-			meals: $("#meals").val(),
-			intervals: intervalSurveys
+			meals: $("#meals").val()
 		};
 		console.log(survey);
 		$.post("/api/chunk/done", survey, function(res){
