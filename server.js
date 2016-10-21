@@ -32,9 +32,31 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-   // TODO: if user is verified with database
-   res.send({status: 'success', message: 'Login successful'});
-   // TODO: else res.send status 'invalid'
+   if (!req.body.email || !req.body.password) {
+      res.status(401);
+      console.info('Invalid Login', req.body.email);
+      res.send({status: 'error', message: 'user/pass not entered'});
+      return;
+   }
+
+   User.find({email: req.body.email}, (err, user) => {
+      if (user.length === 0) {
+         res.status(401);
+         res.send({status: 'invalid', message: 'invalid username/passord'});
+      } else if (user[0].password !== req.body.password) {
+         res.status(401);
+         res.send({status: 'invalid', message: 'invalid username/password'});
+      } else {
+         res.send({status: 'success', message: 'Login successful'});
+         req.session.email = user[0].email;
+         req.session.password = user[0].password;
+      }
+   });
+});
+
+app.post('/api/logout', (req, res) => {
+   delete req.session.user;
+   res.send({status: 'logout', message: 'succesfully logged out'});
 });
 
 app.post('/api/register', (req, res) => {
