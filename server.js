@@ -91,6 +91,10 @@ app.post('/api/register', (req, res) => {
    });
 });
 
+app.post('/api/survey', (req, res) => {
+   res.send({message: 'you posted a survey'});
+});
+
 // serve up static content in the public folder
 // this allows us to bring in our own js and css files
 app.use(express.static('public'));
