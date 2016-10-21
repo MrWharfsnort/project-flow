@@ -14,8 +14,7 @@
 /* "social" are the animated buttons in the jumbotron, can delete if stupid */
 ul.social-network {
 	list-style: none;
-	/*display: inline;*/
-	margin-left:0 !important;
+	margin-left: 0 !important;
 	padding: 0;
 	float: right;
 }
@@ -25,12 +24,11 @@ ul.social-network li {
 	margin: 0 5px;
 }
 
-.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+.social-network a {
 	color:#fff;
 }
 
-a.socialIcon:hover, .socialHoverClass {
+.social-network i:hover {
 	color:#44BCDD;
 }
 
@@ -56,7 +54,7 @@ a.socialIcon:hover, .socialHoverClass {
 .social-circle li a:hover i, .triggeredHover {
 	-moz-transform: rotate(360deg);
 	-webkit-transform: rotate(360deg);
-	-ms--transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
 	transform: rotate(360deg);
 	-webkit-transition: all 0.2s;
 	-moz-transition: all 0.2s;
