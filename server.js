@@ -13,11 +13,6 @@ mongoose.connect("mongodb://localhost");
 var Chunk = require("./ChunkSchema.js")(mongoose);
 var User = require('./UserSchema.js')(mongoose, Chunk);
 
-
-// serve up static content in the public folder
-// this allows us to bring in our own js and css files
-app.use(express.static('public'));
-
 // basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -29,13 +24,19 @@ app.use(session({
    saveUninitialized: false
 }));
 
+// serve up static content in the public folder
+// this allows us to bring in our own js and css files
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
+   console.log('a');
    if (req.session) {
-      res.sendFile(__dirname + './index.html');
+      res.sendFile(__dirname + '/index.html');
    } else {
-      res.sendFile(__dirname + './login.html');
+      res.redirect(__dirname + '/login.html');
    }
 });
+
 
 app.post('/api/login', (req, res) => {
    if (!req.body.email || !req.body.password) {
@@ -92,6 +93,9 @@ app.post('/api/register', (req, res) => {
       }
    });
 });
+
+
+
 
 // 404 error handling
 app.use((req, res, next) => {
