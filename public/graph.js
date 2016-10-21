@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    <style type="text/css">
-      .ct-chart{
-        height: 300px;
-        width: 600px;
-      }
-    </style>
-  </head>
-  <body>
-
-    <div class="ct-chart ct-perfect-fourth"></div>
-
-      <script type="text/javascript">
-// var chart = new Chartist.Line('.ct-chart', {
-//   labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-//   series: [
-//     [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9],
-//     [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null],
-//     [null, null, null, null, 3, 4, 1, 3, 4,  6,  7,  9, 5, null, null, null]
-//   ]
-// }, {
-//   fullWidth: true,
-//   chartPadding: {
-//     right: 10
-//   },
-//   low: 0
-// });
-
 var chart = new Chartist.Line('.ct-chart', {
   labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
   series: [
@@ -43,8 +11,8 @@ var chart = new Chartist.Line('.ct-chart', {
 
 // Let's put a sequence number aside so we can use it in the event callbacks
 var seq = 0,
-  delays = 80,
-  durations = 500;
+  delays = 50,
+  durations = 100;
 
 // Once the chart is fully created we reset the sequence
 chart.on('created', function() {
@@ -60,7 +28,7 @@ chart.on('draw', function(data) {
     data.element.animate({
       opacity: {
         // The delay when we like to start the animation
-        begin: seq * delays + 1000,
+        begin: seq * delays + 100,
         // Duration of the animation
         dur: durations,
         // The value where the animation should start
@@ -146,16 +114,3 @@ chart.on('draw', function(data) {
     data.element.animate(animations);
   }
 });
-
-// For the sake of the example we update the chart every time it's created with a delay of 10 seconds
-chart.on('created', function() {
-  if(window.__exampleAnimateTimeout) {
-    clearTimeout(window.__exampleAnimateTimeout);
-    window.__exampleAnimateTimeout = null;
-  }
-  window.__exampleAnimateTimeout = setTimeout(chart.update.bind(chart), 12000);
-});
-
-  </script>
-  </body>
-</html>

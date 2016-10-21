@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>LearnFlow</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="./main_style.css">
+	<!-- chartist graphing lab below -->
+	 <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 	<script src="./jquery-3.1.1.min.js"></script>
 	<script src="./main.js"></script>
 	<script src="./timer.js"></script>
@@ -50,6 +52,7 @@
 
 			<div id="finished" style="display: none">
 	<!-- todo: finished time chuck survey goes here -->
+				<div class="ct-chart ct-perfect-fourth"></div>
 				<!-- optional task input field -->
 				<button id="submitSurvey" class="btn btn-secondary">Submit Info</button>
 			</div>
