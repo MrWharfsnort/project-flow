@@ -5,6 +5,7 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="./main_style.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="./jquery-3.1.1.min.js"></script>
 	<script src="./main.js"></script>
 	<script src="./timer.js"></script>
@@ -14,6 +15,12 @@
 	<div class="jumbotron">
 		<h1>Welcome to LearnFlow</h1>
 		<p>Helping you acheive flow state while you work on expanding the boundaries of your knowledge.</p>
+    	<div class="col-md-12">
+            <ul class="social-network social-circle">
+                <li><a href="#" title="coffee"><i class="fa fa-coffee"></i></a></li>
+                <li><a href="#" title="chunkGraphs"><i class="fa fa-bar-chart"></i></a></li>
+            </ul>				
+		</div>
 	</div>
 
 	<div class="container">
@@ -22,8 +29,8 @@
 			<!-- login div -->
 				Email: <input type="text" id="email">
 				Password: <input type="password" id="password">
-				<button id="signIn">Login</button>
-				<button id="signUp">Register</button>
+				<button id="signIn" class="btn btn-secondary">Login</button>
+				<button id="signUp" class="btn btn-secondary">Register</button>
 			</div>
 
 			<div id="newUser" style="display: none">
@@ -31,14 +38,14 @@
 				Name: <input type="text" id="name">
 				Password: <input type="password" id="newPassword">
 				Email: <input type="text" id="newEmail">
-				<button id="addUser">Register</button>
+				<button id="addUser" class="btn btn-secondary">Register</button>
 			</div>
 
 			<div id="timer" style="display: none">
 			<!-- This is the div to display once user logs in, here they can start a tiime chunk, take a break -->
-				<button id="startTimer">Start Working</button>
-				<button id="endTimer" style="display: none">Finish</button>
-				<button id="takeBreak">Take A Break</button>
+				<button id="startTimer" class="btn btn-secondary">Start Working</button>
+				<button id="endTimer" class="btn btn-secondary" style="display: none">Finish</button>
+				<button id="takeBreak" class="btn btn-secondary">Take A Break</button>
 				
 			</div>
 
@@ -46,20 +53,20 @@
 				<!-- Auto prompt to take a break -->
 				<h3>Now is a good time to take a break</h3>
 				<p>In order to maintain optimal cognitive functioning it is important to take some time away and let your mind wander freely.</p>
-				<button id="yesBreak">Okay, Break Time</button>
-				<button id="noBreak">Keep Working</button>
+				<button id="yesBreak" class="btn btn-secondary">Okay, Break Time</button>
+				<button id="noBreak" class="btn btn-secondary">Keep Working</button>
 			</div>
 
 			<div id="break" style="display: none">
 	<!-- todo: break survey goes here -->
 				<!-- optional task input field -->
-				<button id="endBreak">Back to Work</button>
+				<button id="endBreak" class="btn btn-secondary">Back to Work</button>
 			</div>
 
 			<div id="finished" style="display: none">
 	<!-- todo: finished time chuck survey goes here -->
 				<!-- optional task input field -->
-				<button id="submitSurvey">Submit Info</button>
+				<button id="submitSurvey" class="btn btn-secondary">Submit Info</button>
 			</div>
 
 			<div id="data" style="display: none">
