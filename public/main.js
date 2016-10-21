@@ -53,6 +53,8 @@ $(document).ready(function () {
 		$.post("/api/chunk/done", survey, function(res){
 			console.log(res);
 		});
+		$("#finished").css("display", "none");
+		$("#data").css("display", "block");
 	});
 
 
