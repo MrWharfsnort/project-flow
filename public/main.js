@@ -10,12 +10,11 @@ $(document).ready(function () {
 			if(response.status === "success") { //if logged in 
 				$("#login").css("display", "none"); //hide login div
 				$("#timer").css("display", "block"); //display timer div
-				//enable timer button
 			}
 		});
 	});
 
-	$("#signUp").click(function(){
+	$("#signUp").click(function(){ //click listener to show registration div
 		$("#login").css("display", "none");
 		$("#newUser").css("display", "block");
 	});
@@ -24,7 +23,7 @@ $(document).ready(function () {
 		var name = $("#name").val(); //get username input
 		var pw = $("#newPassword").val(); //get password input
 		var email = $("#newEmail").val(); //get email input
-		console.log(name, pw, email);
+
 		$.post("/api/register", { //post to the register api
 			name: name,
 			password: pw,
@@ -33,28 +32,26 @@ $(document).ready(function () {
 			if(response.status === "success") { //if logged in 
 				$("#newUser").css("display", "none"); //hide login div
 				$("#timer").css("display", "block"); //display timer div
-				//enable timer button
 			}
 		});
 	});
 
 	$("#startTimer").click(function (evt) {
-		startTime();  //todo: write startTime in timer.js
-		$button = $(evt.target);
-		$button.css("display", "none");
-		$("#endTimer").css("display", "inline");
-		$("#endTimer").click(endTime);
+		startTime();  //calls startTime in timer.js
+		$(evt.target).css("display", "none"); //hide start timer button
+		$("#endTimer").css("display", "inline"); //show stop timer button
+		$("#endTimer").click(endTime); //add click listener
 	});
 
 
-	$("#endBreak").click(endBreak);
+	$("#endBreak").click(endBreak); //click listener to end break on break div
 
-	$("#yesBreak").click(startBreak);
+	$("#yesBreak").click(startBreak); //click listener on autoBreak div
 
-	$("#noBreak").click(function() {
+	$("#noBreak").click(function() { //click listener to choose no autoBreak on autoBreak div
 		$("#autoBreak").css("display", "none");
 		$("#timer").css("display", "block");
-		setAutoBreak();
+		setAutoBreak(); //reset autoBreak timeout  
 	});
 
 
