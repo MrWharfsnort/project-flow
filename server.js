@@ -104,12 +104,13 @@ app.post('/api/chunk/new', (req, res) => {
 app.post('/api/chunk/interval', (req, res) => {
    var interval = new Interval({
       timeFromStart: req.body.timeFromStart,
-      perceivedChallenge: req.body.perceivedChallenge,
-	   percievedSkill: req.body.perceivedSkill,
+      perceivedChallenge: req.body.challenge,
+	   percievedSkill: req.body.skill,
 	   activity: req.body.activity,
 	   caffeine: req.body.caffeine,
-	   snack: req.body.snack
+	   snack: req.body.food
    });
+   console.log(req.body);
 
    Chunk.findOneAndUpdate({_id: req.body.chunkId}, { $push: { intervals: interval } }, (err) => {
       if (err) { console.log(err); }
@@ -120,8 +121,10 @@ app.post('/api/chunk/done', (req, res) => {
    Chunk.findOneAndUpdate({_id: req.body.chunkId}, {
       timeSpent: req.body.timeSpent,
       timeOfDay: req.body.timeOfDay,
-      hoursSlept: req.body.hoursSlept,
-      mealsEaten: req.body.mealsEaten
+      hoursSlept: req.body.sleep,
+      mealsEaten: req.body.meals
+   }, (err, data) => {
+      if(err) console.log(err);
    });
 });
 

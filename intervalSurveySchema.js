@@ -5,7 +5,7 @@ module.exports = (mongoose) => {
 	perceivedChallenge: Number,//1-10 polled at begining an end,
 	percievedSkill: Number,//1-10 polled at begining an end,
 	activity: String,
-	caffeine: Number,
+	caffeine: Boolean,
 	snack: Boolean
    });
 

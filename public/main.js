@@ -42,6 +42,7 @@ $(document).ready(function () {
 
 	$("#submitSurvey").click(function(){
 		var survey = {
+			chunkId: chunkId,
 			breaksTaken: breakCount,
 			timeSpent: totalTime,
 			timeOfDay: startDate,
