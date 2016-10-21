@@ -10,7 +10,9 @@ mongoose.Promise = global.Promise; // this silences the error about mongo's mpro
 mongoose.connect("mongodb://localhost");
 
 // pull in the user model
-var User = require('./UserSchema.js')(mongoose);
+var Chunk = require("./ChunkSchema.js")(mongoose);
+var User = require('./UserSchema.js')(mongoose, Chunk);
+
 
 // serve up static content in the public folder
 // this allows us to bring in our own js and css files

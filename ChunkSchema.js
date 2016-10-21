@@ -10,7 +10,7 @@ module.exports = (mongoose) => {
 	nutrition: Number
    });
 
-   var User = mongoose.model('User', ChunkSchema);
+   var Chunk = mongoose.model('Chunk', ChunkSchema);
 
-   return User;
+   return Chunk;
 };
