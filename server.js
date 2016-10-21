@@ -6,14 +6,21 @@ var bodyParser = require('body-parser');
 var app = express();
 var PORT = process.env.port || 8000;
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
 mongoose.connect("mongodb://localhost");
 
+// pull in the user model
 var User = require('./UserSchema.js')(mongoose);
 
+// serve up static content in the public folder
+// this allows us to bring in our own js and css files
 app.use(express.static('public'));
+
+// basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+// basic config for express-session
 app.use(session({
    secret: 'hghvjkiouyutfghjhjgtyr6t78yiujknliuytre456rtfghiuhgftr5',
    resave: false,
@@ -25,28 +32,54 @@ app.get('/', (req, res) => {
 });
 
 app.post('/api/login', (req, res) => {
-   // if user is verified with database
+   // TODO: if user is verified with database
    res.send({status: 'success', message: 'Login successful'});
-   // else res.send status 'invalid'
+   // TODO: else res.send status 'invalid'
 });
 
 app.post('/api/register', (req, res) => {
-   res.send({status: 'added', message: 'user added successfully'});
+   // find this email in the database and see if it already exists
+   User.find({email: req.body.email}, (err, data) => {
+      if (data.length === 0) {      // if the user doesn't exist
+         var newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
+         });
+
+         newUser.save((err) => { // save the newUser object to the database
+            if (err) {
+               res.status(500);
+               console.error(err);
+               res.send({status: 'Error', message: 'unable to register user:' + err});
+            }
+            res.send({status: 'success', message: 'user added successfully'});
+         });
+      } else if (err) { // send back an error if there's a problem
+         res.status(500);
+         console.error(err);
+         res.send({status: 'Error', message: 'server error: ' + err});
+      } else {
+         res.send({status: 'Error', message: 'user already exists'}); // otherwise the user already exists
+      }
+   });
 });
 
-
+// 404 error handling
 app.use((req, res, next) => {
    res.status(404);
    console.error('404 - ' + req.url);
    res.send({status: 'Error', message: '404 - File not found'});
 });
 
+// 500 error handling
 app.use((err, req, res, next) => {
    res.status(500);
    console.error('Server error: ' + err);
    res.send({status: 'Error', message: '500 - Server Error'});
 });
 
+// start the server
 app.listen(PORT, () => {
    console.info('Server started on http://localhost:' + PORT);
 });
