@@ -12,7 +12,7 @@ function startTime() { //start the timer
 	timeStamps.push(Date.now()); //push a timestamp
 	startDate = new Date(); //set the date and time of chunk
 	$("#takeBreak").click(startBreak); //attatch click listener for taking breaks
-	setAutoBreak(); //sets the autoBreak timeout
+	setAutoBreak(2700000); //sets the initial autoBreak timeout at 45-minutes
 }
 
 
@@ -29,11 +29,20 @@ function endBreak() {
 	timeStamps.push(Date.now()); //push end of break timestamp
 	$("#break").css("display", "none"); //hide the break div
 	$("#timer").css("display", "block"); //show the timer div
-	setAutoBreak(); //reset that autoBreak timeout
+	setAutoBreak(2700000); //reset that autoBreak timeout
 }
 
-function setAutoBreak() {
-	t = setTimeout(autoBreak, 5000); //todo replace timeout length with actual working value
+function setAutoBreak(initial) {
+	t = setTimeout(autoBreak, initial);
+}
+
+function skipBreak() {
+	var interval = 900000; //if choosing "no break" set interval to 15 minutes
+	var timeSinceBreak = Date.now() - timeStamps[timeStamps.length - 1];
+	var decrement =(timeSinceBreak - 2700000)/5;
+	decrement = Math.min(decrement, 780000); //maxes out decrement at 13 minutes
+	interval = interval - decrement;//each time 'no break' is chosen reduce interval;
+	setAutoBreak(interval);
 }
 
 function endTime() {

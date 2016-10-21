@@ -37,7 +37,7 @@ $(document).ready(function () {
 	$("#noBreak").click(function() { //click listener to choose no autoBreak on autoBreak div
 		$("#autoBreak").css("display", "none");
 		$("#timer").css("display", "block");
-		setAutoBreak(); //reset autoBreak timeout  
+		skipBreak(); //reset autoBreak timeout  
 	});
 
 
