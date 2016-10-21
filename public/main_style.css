@@ -1,7 +1,7 @@
 .jumbotron {
 	text-align: center;
 	background-color: #ffefd5;
-	color: #ccc;
+	color: #565656;
 	min-height: 250px;
 }
 
@@ -75,7 +75,7 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 a {
-	background-color: #D3D3D3;   
+	background-color: #D3D3D3;
 }
 
 .btn {
