@@ -24,6 +24,7 @@ $(document).ready(function () {
 		var name = $("#name").val(); //get username input
 		var pw = $("#newPassword").val(); //get password input
 		var email = $("#newEmail").val(); //get email input
+		console.log(name, pw, email);
 		$.post("/api/register", { //post to the register api
 			name: name,
 			password: pw,
@@ -40,12 +41,27 @@ $(document).ready(function () {
 	$("#startTimer").click(function (evt) {
 		startTime();  //todo: write startTime in timer.js
 		$button = $(evt.target);
-		$button.text("Finish");
-		$button.attr("id", "endTimer");
+		$button.css("display", "none");
+		$("#endTimer").css("display", "inline");
 		$("#endTimer").click(endTime);
 	});
 
 
 	$("#endBreak").click(endBreak);
+
+	$("#yesBreak").click(startBreak);
+
+	$("#noBreak").click(function() {
+		$("#autoBreak").css("display", "none");
+		$("#timer").css("display", "block");
+		setAutoBreak();
+	});
+
+
+
+
+
+
+
 
 });
