@@ -5,6 +5,13 @@
 	min-height: 250px;
 }
 
+#login {
+	float: right;
+	width: 100%;
+	padding-left: 20px;
+}
+
+
 ul.social-network {
 	list-style: none;
 	display: inline;
@@ -66,5 +73,18 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 a {
- background-color: #D3D3D3;   
+	background-color: #D3D3D3;   
+}
+.btn {
+	margin-top: 10px;
+	padding: 10px auto;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #999;
+	background-color: #ffefd5;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 9px #999;
 }

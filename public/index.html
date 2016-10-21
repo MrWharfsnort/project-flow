@@ -5,7 +5,6 @@
 	<title>Document</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="./main_style.css">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="./jquery-3.1.1.min.js"></script>
 	<script src="./main.js"></script>
 	<script src="./timer.js"></script>
@@ -17,8 +16,8 @@
 		<p>Helping you acheive flow state while you work on expanding the boundaries of your knowledge.</p>
     	<div class="col-md-12">
             <ul class="social-network social-circle">
-                <li><a href="#" title="coffee"><i class="fa fa-coffee"></i></a></li>
-                <li><a href="#" title="chunkGraphs"><i class="fa fa-bar-chart"></i></a></li>
+                 <li><a href="#" title="userProfile"><i class="glyphicon glyphicon-user"></i></a></li>
+                <li><a href="#" title="timeSomething"><i class="glyphicon glyphicon-hourglass"></i></a></li>
             </ul>				
 		</div>
 	</div>
@@ -27,10 +26,17 @@
 		<div class="row">
 			<div id="login">
 			<!-- login div -->
-				Email: <input type="text" id="email">
-				Password: <input type="password" id="password">
-				<button id="signIn" class="btn btn-secondary">Login</button>
+			    <div class="form-group">
+			      <label for="email">Email:</label>
+			      <input type="email" class="form-control" id="email" placeholder="Enter email">
+			    </div>
+			    <div class="form-group">
+			      <label for="pwd">Password:</label>
+			      <input type="password" class="form-control" id="password" placeholder="Enter password">
+			      <button id="logIn" class="btn btn-secondary">Login</button>
 				<button id="signUp" class="btn btn-secondary">Register</button>
+			    </div>
+    </div>
 			</div>
 
 			<div id="newUser" style="display: none">
