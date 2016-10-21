@@ -20,7 +20,7 @@ $(document).ready(function () {
 	});
 
 	$("#endBreak").click(function(){ //click listener to end break on break div
-		$post("/api/chunk/interval", {
+		$.post("/api/chunk/interval", {
 			challenge: $("#challenge").val(),
 			skill: $("#skill").val(),
 			activity: $("#activity").val(),
@@ -37,7 +37,7 @@ $(document).ready(function () {
 	$("#noBreak").click(function() { //click listener to choose no autoBreak on autoBreak div
 		$("#autoBreak").css("display", "none");
 		$("#timer").css("display", "block");
-		skipBreak(); //reset autoBreak timeout  
+		skipBreak(); //reset autoBreak timeout
 	});
 
 	$("#submitSurvey").click(function(){
