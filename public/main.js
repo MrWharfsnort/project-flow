@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	var intervalSurveys = [];
 
 	$("#addUser").click(function(){
 		var name = $("#name").val(); //get username input
@@ -30,7 +31,16 @@ $(document).ready(function () {
 		});
 	});
 
-	$("#endBreak").click(endBreak); //click listener to end break on break div
+	$("#endBreak").click(function(){ //click listener to end break on break div
+		intervalSurveys.push({
+			challenge: $("#challenge").val(),
+			skill: $("#skill").val(),
+			activity: $("#activity").val(),
+			caffeine: $("#caffeine").val(),
+			food: $("#food").val()
+		});
+		endBreak();
+	});
 
 	$("#yesBreak").click(startBreak); //click listener on autoBreak div
 
@@ -40,7 +50,17 @@ $(document).ready(function () {
 		skipBreak(); //reset autoBreak timeout  
 	});
 
-
+	$("#submitSurvey").click(function(){
+		var survey = {
+			sleep: $("#sleep").val(),
+			meals: $("#meals").val(),
+			intervals: intervalSurveys
+		};
+		console.log(survey);
+		$.post("/api/survey", survey, function(res){
+			console.log(res);
+		});
+	});
 
 
 
