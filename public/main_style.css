@@ -14,15 +14,15 @@
 /* "social" are the animated buttons in the jumbotron, can delete if stupid */
 ul.social-network {
 	list-style: none;
-	display: inline;
+	/*display: inline;*/
 	margin-left:0 !important;
 	padding: 0;
+	float: right;
 }
 
 ul.social-network li {
 	display: inline;
 	margin: 0 5px;
-	float: right;
 }
 
 .social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
