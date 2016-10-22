@@ -27,4 +27,14 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
          return data;
       });
    };
+
+   this.getIntervalHistory = function(email, number, cb) {
+      Interval.find({email: email}, (err, data) => {
+         if(err) {
+            return console.log("error from dataFunctions getIntervalHistory: " + err);
+         }
+         console.log("internal data: " + data);
+         cb(data);
+      });
+   };
 };
