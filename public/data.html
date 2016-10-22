@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script
+  src="http://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+</head>
+<body><div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+    <script>
+//data in here as an example, actually taken from our database
+//Object id fucks everything up.
+//my functions are at the bottom
+
+
+
+
+var intervalArray = [{
+   // "_id" : ObjectId("580bbc73cba2040776fea6a8"),
+    "timeFromStart" : 18549,
+    "perceivedChallenge" : 5,
+    "percievedSkill" : 4,
+    "activity" : "bongrippin",
+    "caffeine" : true,
+    "snack" : false,
+    "__v" : 0
+},
+{
+   // "_id" : ObjectId("580bbc90cba2040776fea6a9"),
+    "timeFromStart" : 47909,
+    "perceivedChallenge" : 3,
+    "percievedSkill" : 4,
+    "activity" : "minfulness",
+    "caffeine" : false,
+    "snack" : true,
+    "__v" : 0
+},
+{
+    //"_id" : ObjectId("580bbf0bcba2040776fea6ab"),
+    "timeFromStart" : 22176,
+    "perceivedChallenge" : 2,
+    "percievedSkill" : 3,
+    "activity" : "ladybug catching",
+    "caffeine" : false,
+    "snack" : false,
+    "__v" : 0
+},
+{
+    //"_id" : ObjectId("580bbf40cba2040776fea6ae"),
+    "timeFromStart" : 21343,
+    "perceivedChallenge" : 5,
+    "percievedSkill" : 6,
+    "activity" : "yachting",
+    "caffeine" : false,
+    "snack" : true,
+    "__v" : 0
+},
+{
+   // "_id" : ObjectId("580bbfa5cba2040776fea6b1"),
+    "timeFromStart" : 49849,
+    "perceivedChallenge" : 5,
+    "percievedSkill" : 5,
+    "activity" : "tantric pumpkin carving",
+    "caffeine" : false,
+    "snack" : false,
+    "__v" : 0
+},
+{
+    //"_id" : ObjectId("580bc075cba2040776fea6b3"),
+    "timeFromStart" : 20064,
+    "perceivedChallenge" : 3,
+    "percievedSkill" : 4,
+    "activity" : "hugged tree",
+    "caffeine" : false,
+    "snack" : true,
+    "__v" : 0
+},
+{
+   // "_id" : ObjectId("580bc08acba2040776fea6b4"),
+    "timeFromStart" : 40596,
+    "perceivedChallenge" : 6,
+    "percievedSkill" : 1,
+    "activity" : "breathed air",
+    "caffeine" : true,
+    "snack" : false,
+    "__v" : 0
+}];
+
+var chartTitle = "Flo";
+var xAxisLabelArray = ['Chunk1', 'Chunk2', 'Chunk3', 'Chunk4', 'Chunk5',"crazyArea"];
+var yAxisLabelArray = ['salvia','peyote','ergot bread','whippits'];
+
+console.log(intervalArray[1].perceivedChallenge);
+
+var challArr = [];
+function challengeArr (arr){
+    for(var i = 0; i < arr.length; i++){
+        challArr.push(arr[i].perceivedChallenge);
+
+    }        console.log(challArr);
+}
+console.log(challengeArr(intervalArray));
+
+$(function () {
+    $('#container').highcharts({
+
+        title: {
+            text: chartTitle
+        } ,
+        xAxis: {
+            categories: xAxisLabelArray
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Caffine',
+            data: [5, 3, 4, null, 2,4]
+        }, {
+            name: 'Weed',
+            data: [2, -2, -3, 2, 1]
+        }, {
+            name: 'Beer',
+            data: [3, 4, 4, -2, 5, 7]
+        }]
+    });
+});
+
+    </script>
+</body>
+</html>
