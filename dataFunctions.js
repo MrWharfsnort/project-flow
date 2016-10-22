@@ -33,8 +33,11 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
          if(err) {
             return console.log("error from dataFunctions getIntervalHistory: " + err);
          }
-         console.log("internal data: " + data);
-         cb(data);
+         if(!cb) {
+            number(data);
+         } else {
+            cb(data.slice(data.length - number));
+         }
       });
    };
 };
