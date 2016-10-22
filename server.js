@@ -13,6 +13,10 @@ mongoose.connect("mongodb://localhost");
 var Interval = require("./intervalSurveySchema.js")(mongoose);
 var Chunk = require("./ChunkSchema.js")(mongoose, Interval);
 var User = require('./UserSchema.js')(mongoose, Chunk);
+var dataFunctionsConstructor = require('./dataFunctions.js');
+var dataFunctions = new dataFunctionsConstructor(mongoose, User, Chunk, Interval);
+
+console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('nate@no.com', 1));
 
 // basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -88,6 +92,16 @@ app.post('/api/register', (req, res) => {
          res.send({status: 'Error', message: 'user already exists'}); // otherwise the user already exists
       }
    });
+});
+
+
+app.get('/api/chunk/history', (req, res) => {
+   var user = User.find({email: req.body.email});
+
+   for (var chunk in user.chunks) {
+
+   }
+   res.send({message: 'return past 7 days'});
 });
 
 app.post('/api/chunk/new', (req, res) => {
@@ -191,3 +205,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
    console.info('Server started on http://localhost:' + PORT);
 });
+
+
+
