@@ -92,12 +92,10 @@ app.post('/api/register', (req, res) => {
 	});
 });
 
-
 app.get('/api/chunk/history', (req, res) => {
-   dataFunctions.getChunkHistory('nate@no.com', 2, (data) => {
+   dataFunctions.getChunkHistory(req.session.email, 7, (data) => {
       res.send({chunks: data, message: 'return past 7 days'});
    });
-
 });
 
 app.post('/api/chunk/new', (req, res) => {
@@ -128,6 +126,13 @@ app.post('/api/chunk/new', (req, res) => {
 	});
 });
 
+app.get('/api/interval/history', (req, res) => {
+    dataFunctions.getIntervalHistory(req.session.email, req.body.intervalCount, (data) => {
+        res.send({intervals: data, message: 'intervals for past ' + req.body.intervalCount + ' days'});
+    });
+});
+
+
 app.post('/api/chunk/interval', (req, res) => {
 	dataFunctions.getChunkHistory(req.session.email, 7, function(chunks) {//get history to compare skill and challenge average to current values
 		var flow;
@@ -153,6 +158,7 @@ app.post('/api/chunk/interval', (req, res) => {
 			}
 		}
 		var interval = new Interval({//create new interval
+            email: req.session.email,
 			timeFromStart: req.body.timeFromStart,
 			perceivedChallenge: req.body.challenge,
 			percievedSkill: req.body.skill,
