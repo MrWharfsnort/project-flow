@@ -6,7 +6,8 @@ module.exports = (mongoose) => {
 	percievedSkill: Number,//1-10 polled at begining an end,
 	activity: String,
 	caffeine: Boolean,
-	snack: Boolean
+	snack: Boolean,
+	flow: Number
    });
 
    var Interval = mongoose.model('Interval', IntervalSurveySchema);
