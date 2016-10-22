@@ -106,7 +106,7 @@ app.post('/api/chunk/new', (req, res) => {
       console.log('new chunk id: ', chunkId);
       User.findOneAndUpdate(
          {email: req.session.email}, 
-         {$push: {chunks: chunk._id}},
+         {$push: {chunks: chunk}},
          (err, data) => {
             if(err) {
                console.log(err);
