@@ -16,7 +16,7 @@ var User = require('./UserSchema.js')(mongoose, Chunk);
 var dataFunctionsConstructor = require('./dataFunctions.js');
 var dataFunctions = new dataFunctionsConstructor(mongoose, User, Chunk, Interval);
 
-console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('123', 2, console.log));
+// console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('nate@no.com', 2, console.log));
 
 // basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -96,12 +96,9 @@ app.post('/api/register', (req, res) => {
 
 
 app.get('/api/chunk/history', (req, res) => {
-   var user = User.find({email: req.body.email});
-
-   for (var chunk in user.chunks) {
-
-   }
-   res.send({message: 'return past 7 days'});
+   dataFunctions.getChunkHistory('nate@no.com', 2, (data) => {
+      res.send({chunks: data, message: 'return past 7 days'});
+   });
 });
 
 app.post('/api/chunk/new', (req, res) => {
@@ -152,7 +149,7 @@ app.post('/api/chunk/interval', (req, res) => {
 
       Chunk.findOneAndUpdate(
          { _id: req.body.chunkId },
-         { 
+         {
             $push: { intervals: interval._id },
             $inc: {skillTotal: req.body.skill,
                   challengeTotal: req.body.challenge
