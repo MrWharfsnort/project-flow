@@ -67,7 +67,7 @@ function endTime() {
 function autoBreak() {//displays autoBreak prompt
 	var time = Date.now() - timeStamps[timeStamps.length - 1];
 	var suggest = Math.floor(time/180000);
-	$("#suggest").text(suggest + " minutes is a good length for a break right now.");
+	$("#suggested").text(suggest + " minutes is a good length for a break right now.");
 	$("#timer").css("display", "none");
 	$("#autoBreak").css("display", "block");
 }
