@@ -94,11 +94,32 @@ app.post('/api/register', (req, res) => {
 
 app.post('/api/chunk/new', (req, res) => {
    var chunk = new Chunk();
-   chunk.save();
-   console.log('new chunk created: ', chunk);
-   var chunkId = chunk._id;
-   console.log('new chunk id: ', chunkId);
-   res.send({chunkId: chunkId});
+   chunk.save((err) => {
+      if (err) {
+         console.log(err);
+         res.status(500);
+         res.send({message: "error saving chunk"});
+         return;
+      }
+      console.log('new chunk created: ', chunk);
+      var chunkId = chunk._id;
+      console.log('new chunk id: ', chunkId);
+      User.findOneAndUpdate(
+         {email: req.session.email}, 
+         {$push: {chunks: chunk._id}},
+         (err, data) => {
+            if(err) {
+               console.log(err);
+               res.status(500);
+               res.send({message: "error updating user"});
+               return;
+            }
+            res.send({chunkId: chunkId});
+         }
+      );
+
+   });
+
 });
 
 app.post('/api/chunk/interval', (req, res) => {
@@ -110,11 +131,27 @@ app.post('/api/chunk/interval', (req, res) => {
 	   caffeine: req.body.caffeine,
 	   snack: req.body.food
    });
-   console.log(req.body);
-
-   Chunk.findOneAndUpdate({_id: req.body.chunkId}, { $push: { intervals: interval } }, (err) => {
-      if (err) { console.log(err); }
+   interval.save((err) => {
+      if(err) {
+         console.log(err);
+         res.status(500);
+         res.send({message: "error saving interval"});
+         return;
+      }
+      Chunk.findOneAndUpdate(
+         {_id: req.body.chunkId},
+         { $push: { intervals: interval } },
+         (err) => {
+         if (err) {
+            console.log(err);
+            res.status(500);
+            res.send({message: "error updating chunk"});
+            return;
+         }
+         res.send("success");
+      });
    });
+
 });
 
 app.post('/api/chunk/done', (req, res) => {
@@ -124,7 +161,12 @@ app.post('/api/chunk/done', (req, res) => {
       hoursSlept: req.body.sleep,
       mealsEaten: req.body.meals
    }, (err, data) => {
-      if(err) console.log(err);
+      if(err){
+         console.log(err);
+         res.status(500);
+         res.send({message: "error updating chunk"});
+      }
+      res.send("success");
    });
 });
 
