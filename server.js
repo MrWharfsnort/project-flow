@@ -16,11 +16,6 @@ var User = require('./UserSchema.js')(mongoose, Chunk);
 var dataFunctionsConstructor = require('./dataFunctions.js');
 var dataFunctions = new dataFunctionsConstructor(mongoose, User, Chunk, Interval);
 
-<<<<<<< HEAD
-// console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('nate@no.com', 2, console.log));
-
-=======
->>>>>>> f8a8f6d8dfc09544d3befeb729847cb931fa2871
 // basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -99,18 +94,10 @@ app.post('/api/register', (req, res) => {
 
 
 app.get('/api/chunk/history', (req, res) => {
-<<<<<<< HEAD
    dataFunctions.getChunkHistory('nate@no.com', 2, (data) => {
       res.send({chunks: data, message: 'return past 7 days'});
    });
-=======
-	var user = User.find({email: req.body.email});
 
-	for (var chunk in user.chunks) {
-
-	}
-	res.send({message: 'return past 7 days'});
->>>>>>> f8a8f6d8dfc09544d3befeb729847cb931fa2871
 });
 
 app.post('/api/chunk/new', (req, res) => {
@@ -142,60 +129,6 @@ app.post('/api/chunk/new', (req, res) => {
 });
 
 app.post('/api/chunk/interval', (req, res) => {
-<<<<<<< HEAD
-   var interval = new Interval({
-      timeFromStart: req.body.timeFromStart,
-      perceivedChallenge: req.body.challenge,
-	   percievedSkill: req.body.skill,
-	   activity: req.body.activity,
-	   caffeine: req.body.caffeine,
-	   snack: req.body.food
-   });
-
-   interval.save((err) => {
-      if (err) {
-         console.log(err);
-         res.status(500);
-         res.send({message: "error saving interval"});
-         return;
-      }
-
-      Chunk.findOneAndUpdate(
-         { _id: req.body.chunkId },
-         {
-            $push: { intervals: interval._id },
-            $inc: {skillTotal: req.body.skill,
-                  challengeTotal: req.body.challenge
-                  }
-         },{new:true},
-         (err, data) => {
-            if (err) {
-               console.log(err);
-               res.status(500);
-               res.send({message: "error updating chunk"});
-               return;
-            }
-            var skillTotal = data.skillTotal;
-            var challengeTotal = data.challengeTotal;
-            var intervalLength = data.intervals.length;
-            Chunk.findOneAndUpdate(
-               {_id: req.body.chunkId},
-               {
-                  skillAverage: skillTotal/intervalLength,
-                  challengeAverage: challengeTotal/intervalLength
-               },
-               (err, data) => {
-                  if(err){
-                     return console.log(err);
-                  }
-                  res.send("success");
-               }
-            );
-         }
-      );
-   });
-=======
-
 	dataFunctions.getChunkHistory(req.session.email, 7, function(chunks) {//get history to compare skill and challenge average to current values
 		var flow;
 		var sa = 0;
@@ -238,7 +171,7 @@ app.post('/api/chunk/interval', (req, res) => {
 
 			Chunk.findOneAndUpdate(
 				{ _id: req.body.chunkId },
-				{ 
+				{
 					$push: { intervals: interval._id },
 					$inc: {skillTotal: req.body.skill,
 							challengeTotal: req.body.challenge
@@ -271,7 +204,6 @@ app.post('/api/chunk/interval', (req, res) => {
 			);
 		});
 	});
->>>>>>> f8a8f6d8dfc09544d3befeb729847cb931fa2871
 });
 
 app.post('/api/chunk/done', (req, res) => {
