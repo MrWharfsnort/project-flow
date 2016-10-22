@@ -5,7 +5,7 @@ module.exports = (mongoose, Interval) => {
 	timeOfDay: String,//displayed along x as well
 	hoursSlept: Number,//1-10 polled at begining an end,
 	mealsEaten: Number,//not sure really how we'll measure this
-	intervals: [Interval.schema]
+	intervals: [String]
    });
 
    var Chunk = mongoose.model('Chunk', ChunkSchema);
