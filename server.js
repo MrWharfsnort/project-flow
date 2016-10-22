@@ -27,12 +27,10 @@ app.use(session({
 
 
 app.get('/', (req, res) => {
-   console.log('session email', req.session.email);
    if (!req.session.email) {
       res.sendFile(__dirname + '/public/login.html');
       return;
    }
-   console.log('blah');
    res.sendFile(__dirname + '/public/index.html');
 });
 
