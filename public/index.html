@@ -39,6 +39,7 @@
 				<!-- Auto prompt to take a break -->
 				<h3>Now is a good time to take a break</h3>
 				<p>In order to maintain optimal cognitive functioning it is important to take some time away and let your mind wander freely.</p>
+				<p id="suggested"></p>
 				<button id="yesBreak" class="btn btn-secondary">Okay, Break Time</button>
 				<button id="noBreak" class="btn btn-secondary">Keep Working</button>
 			</div>
@@ -48,7 +49,7 @@
 				<!-- optional task input field -->
 				<div class="preBreak">
 					<h3>Pre-break survey:</h3>
-					Challenge Level: <select name="challenge" id="challenge" class="form-control">
+					How challenged do you feel by what you are working on, 1 being not challenged, 10 being extremely challenged: <select name="challenge" id="challenge" class="form-control">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -60,7 +61,7 @@
 						<option value="9">9</option>
 						<option value="10">10</option>
 					</select>
-					Skill Level: <select name="skill" id="skill" class="form-control">
+					How much of what you are working on involves the use of your current skill set, 1 being you are not using any of your skills in this area, 10 being you are using all of the skills you already have relating to the task: <select name="skill" id="skill" class="form-control">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>

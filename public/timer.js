@@ -62,14 +62,12 @@ function endTime() {
 	workTime = totalTime - breakTime;//calculate total time spent acutally working
 	$("#timer").css("display", "none");//hide timer
 	$("#finished").css("display", "block");//show finished chunk survey
-	// console.log(startDate);
-	// console.log("Total chunk time: " + totalTime);
-	// console.log("Total break time: " + breakTime);
-	// console.log("Number of breaks taken: " + breakCount);
-	// console.log("Time spent actually working: " + workTime);
 }
 
 function autoBreak() {//displays autoBreak prompt
+	var time = Date.now() - timeStamps[timeStamps.length - 1];
+	var suggest = Math.floor(time/180000);
+	$("#suggest").text(suggest + " minutes is a good length for a break right now.");
 	$("#timer").css("display", "none");
 	$("#autoBreak").css("display", "block");
 }
