@@ -16,7 +16,7 @@ var User = require('./UserSchema.js')(mongoose, Chunk);
 var dataFunctionsConstructor = require('./dataFunctions.js');
 var dataFunctions = new dataFunctionsConstructor(mongoose, User, Chunk, Interval);
 
-console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('nate@no.com', 1));
+console.log('hello from datafunctions call in server.js', dataFunctions.getChunkHistory('123', 2, console.log));
 
 // basic config for body-parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -152,18 +152,38 @@ app.post('/api/chunk/interval', (req, res) => {
 
       Chunk.findOneAndUpdate(
          { _id: req.body.chunkId },
-         { $push: { intervals: interval._id } },
-         (err) => {
+         { 
+            $push: { intervals: interval._id },
+            $inc: {skillTotal: req.body.skill,
+                  challengeTotal: req.body.challenge
+                  }
+         },{new:true},
+         (err, data) => {
             if (err) {
                console.log(err);
                res.status(500);
                res.send({message: "error updating chunk"});
                return;
             }
-         res.send("success");
-      });
+            var skillTotal = data.skillTotal;
+            var challengeTotal = data.challengeTotal;
+            var intervalLength = data.intervals.length;
+            Chunk.findOneAndUpdate(
+               {_id: req.body.chunkId},
+               {
+                  skillAverage: skillTotal/intervalLength,
+                  challengeAverage: challengeTotal/intervalLength
+               },
+               (err, data) => {
+                  if(err){
+                     return console.log(err);
+                  }
+                  res.send("success");
+               }
+            );
+         }
+      );
    });
-
 });
 
 app.post('/api/chunk/done', (req, res) => {
