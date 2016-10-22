@@ -5,7 +5,7 @@ module.exports = (mongoose, Chunk) => {
       name: String,
       email: String,
       password: String,
-      chunks: [Chunk.schema]
+      chunks: [String]
    });
 
    var User = mongoose.model('User', UserSchema); // create a new model called 'User' based on 'UserSchema'

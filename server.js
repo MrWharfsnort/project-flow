@@ -105,7 +105,7 @@ app.post('/api/chunk/new', (req, res) => {
 
       User.findOneAndUpdate(
          {email: req.session.email},
-         {$push: {chunks: chunk}},
+         {$push: {chunks: chunkId}},
          (err, data) => {
          if(err) {
             console.log(err);
@@ -135,9 +135,10 @@ app.post('/api/chunk/interval', (req, res) => {
          res.send({message: "error saving interval"});
          return;
       }
+
       Chunk.findOneAndUpdate(
          { _id: req.body.chunkId },
-         { $push: { intervals: interval } },
+         { $push: { intervals: interval._id } },
          (err) => {
             if (err) {
                console.log(err);
