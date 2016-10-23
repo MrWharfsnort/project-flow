@@ -170,6 +170,7 @@ app.post('/api/chunk/interval', (req, res) => {
 		}
 		var interval = new Interval({//create new interval
             email: req.session.email,
+            date: req.body.date,
 			timeFromStart: req.body.timeFromStart,
 			perceivedChallenge: req.body.challenge,
 			percievedSkill: req.body.skill,
