@@ -53,11 +53,9 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 				if(!cb) {
 					number(data);
 				} else {
-					if(number > data.length) {
+					
 						cb(data);
-					} else {
-						cb(data.slice(data.length - number));
-					}
+					
 				}
 			});
 
