@@ -93,8 +93,10 @@ app.post('/api/register', (req, res) => {
 });
 
 app.get('/api/chunk/history', (req, res) => {
-   dataFunctions.getChunkHistory(req.session.email, 7, (data) => {
-      res.send({chunks: data, message: 'return past 7 days'});
+    var historySpan = req.session.chunkCount || 7;
+
+   dataFunctions.getChunkHistory(req.session.email, historySpan, (data) => {
+      res.send({chunks: data, message: 'return past ' + historySpan + ' days'});
    });
 });
 
@@ -127,11 +129,12 @@ app.post('/api/chunk/new', (req, res) => {
 });
 
 app.get('/api/interval/history', (req, res) => {
-    dataFunctions.getIntervalHistory(req.session.email, req.body.intervalCount, (data) => {
-        res.send({intervals: data, message: 'intervals for past ' + req.body.intervalCount + ' days'});
+    var historySpan = req.session.intervalCount || 7;
+
+    dataFunctions.getIntervalHistory(req.session.email, historySpan, (data) => {
+        res.send({intervals: data, message: 'intervals for past ' + historySpan + ' days'});
     });
 });
-
 
 app.post('/api/chunk/interval', (req, res) => {
 	dataFunctions.getChunkHistory(req.session.email, 7, function(chunks) {//get history to compare skill and challenge average to current values

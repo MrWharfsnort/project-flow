@@ -11,16 +11,19 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 </head>
-<body><div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-
+<body>
+    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <script>
 //data in here as an example, actually taken from our database
 //Object id fucks everything up.
-//my functions are at the bottom
 
+var chartTitle = "Flo";
+var xAxisLabelArray = ['Chunk1', 'Chunk2', 'Chunk3', 'Chunk4', 'Chunk5',"crazyArea"];
+var yAxisLabelArray = ['salvia','peyote','ergot bread','whippits'];
 
-
-
+//just for testing, delet later
 var intervalArray = [{
    // "_id" : ObjectId("580bbc73cba2040776fea6a8"),
     "timeFromStart" : 18549,
@@ -92,10 +95,6 @@ var intervalArray = [{
     "__v" : 0
 }];
 
-var chartTitle = "Flo";
-var xAxisLabelArray = ['Chunk1', 'Chunk2', 'Chunk3', 'Chunk4', 'Chunk5',"crazyArea"];
-var yAxisLabelArray = ['salvia','peyote','ergot bread','whippits'];
-
 console.log(intervalArray[1].perceivedChallenge);
 
 var challArr = [];
@@ -103,10 +102,13 @@ function challengeArr (arr){
     for(var i = 0; i < arr.length; i++){
         challArr.push(arr[i].perceivedChallenge);
 
-    }        console.log(challArr);
+    }       console.log(challArr);
 }
-console.log(challengeArr(intervalArray));
+challengeArr(intervalArray);
 
+
+
+//the high chart function
 $(function () {
     $('#container').highcharts({
 
@@ -120,7 +122,7 @@ $(function () {
             enabled: false
         },
         series: [{
-            name: 'Caffine',
+            name: 'Percieved Challenge',
             data: [5, 3, 4, null, 2,4]
         }, {
             name: 'Weed',
@@ -131,6 +133,7 @@ $(function () {
         }]
     });
 });
+
 
     </script>
 </body>
