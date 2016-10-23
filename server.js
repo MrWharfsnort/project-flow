@@ -59,6 +59,14 @@ app.post('/api/login', (req, res) => {
 	});
 });
 
+app.get('/data', (req, res) => {
+	if (!req.session.email) {
+		res.sendFile(__dirname + '/public/login.html');
+		return;
+	}
+	res.sendFile(__dirname + '/public/data.html');
+});
+
 app.post('/api/logout', (req, res) => {
 	delete req.session.email;
 	res.send({status: 'logout', message: 'succesfully logged out'});
