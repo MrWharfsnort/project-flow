@@ -21,6 +21,7 @@ $(document).ready(function () {
 		endBreak();
 		$.post("/api/chunk/interval", {
 			chunkId: chunkId,
+			date: startDate,
 			timeFromStart: breakTime,
 			challenge: $("#challenge").val(),
 			skill: $("#skill").val(),
