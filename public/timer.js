@@ -69,6 +69,7 @@ function autoBreak() {//displays autoBreak prompt
 	var time = Date.now() - timeStamps[timeStamps.length - 1];
 	var suggest = Math.floor(time / 60000 * 0.2);//adjujsts suggested break length to be 20% of the time since you last took a break
 	$("#suggested").text(suggest + " minutes is a good length for a break right now.");
+	notifyMe("LearnFlow wants to know if you are ready for a break.");
 	$("#timer").css("display", "none");
 	$("#autoBreak").css("display", "block");
 }
