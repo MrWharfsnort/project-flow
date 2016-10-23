@@ -28,51 +28,51 @@ app.use(session({
 }));
 
 
-app.get('/', (req, res) => {
-	if (!req.session.email) {
+app.get('/', (req, res) => {//get root of the site
+	if (!req.session.email) {//if not logged in, redirect to login page
 		res.sendFile(__dirname + '/public/login.html');
 		return;
 	}
-	res.sendFile(__dirname + '/public/index.html');
+	res.sendFile(__dirname + '/public/index.html'); //if logged in send index.html
 });
 
 
-app.post('/api/login', (req, res) => {
-	if (!req.body.email || !req.body.password) {
+app.post('/api/login', (req, res) => {//login page
+	if (!req.body.email || !req.body.password) {//if no email or password provided send error
 		res.status(401);
 		console.info('Invalid Login', req.body.email);
 		res.send({status: 'error', message: 'user/pass not entered'});
 		return;
 	}
 
-	User.find({email: req.body.email}, (err, user) => {
+	User.find({email: req.body.email}, (err, user) => {//search for provided email and password in user database
 		if (user.length === 0) {
 			res.status(401);
 			res.send({status: 'invalid', message: 'invalid username/passord'});
 		} else if (user[0].password !== req.body.password) {
 			res.status(401);
 			res.send({status: 'invalid', message: 'invalid username/password'});
-		} else {
+		} else {//if user is found set session email
 			req.session.email = user[0].email;
 			res.send({status:"success"});
 		}
 	});
 });
 
-app.get('/data', (req, res) => {
-	if (!req.session.email) {
+app.get('/data', (req, res) => {//data display page
+	if (!req.session.email) {//if not logged in redirect to login page
 		res.sendFile(__dirname + '/public/login.html');
 		return;
 	}
-	res.sendFile(__dirname + '/public/data.html');
+	res.sendFile(__dirname + '/public/data.html');//otherwise send data.html
 });
 
-app.post('/api/logout', (req, res) => {
+app.post('/api/logout', (req, res) => {//logout api
 	delete req.session.email;
 	res.send({status: 'logout', message: 'succesfully logged out'});
 });
 
-app.post('/api/register', (req, res) => {
+app.post('/api/register', (req, res) => {//api to register a new user
 	// find this email in the database and see if it already exists
 	User.find({email: req.body.email}, (err, data) => {
 		if (data.length === 0) {      // if the user doesn't exist
@@ -100,15 +100,15 @@ app.post('/api/register', (req, res) => {
 	});
 });
 
-app.get('/api/chunk/history', (req, res) => {
-    var historySpan = req.session.chunkCount || 7;
+app.get('/api/chunk/history', (req, res) => {//api for getting a history of chunks
+    var historySpan = req.session.chunkCount || 7;//history of chunkCount days or 7 days if chunkCount is not provided by the front end
 
    dataFunctions.getChunkHistory(req.session.email, historySpan, (data) => {
-      res.send({chunks: data, message: 'return past ' + historySpan + ' days'});
+      res.send({chunks: data, message: 'return past ' + historySpan + ' days'});//sends back an array of chunk data objects
    });
 });
 
-app.post('/api/chunk/new', (req, res) => {
+app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when user starts a timer for the day
 	var chunk = new Chunk();
 
 	chunk.save((err) => {
@@ -121,7 +121,7 @@ app.post('/api/chunk/new', (req, res) => {
 
 		var chunkId = chunk._id;
 
-		User.findOneAndUpdate(
+		User.findOneAndUpdate(//this is to psuh the chunk id to the user's array of chunk ids
 			{email: req.session.email},
 			{$push: {chunks: chunkId}},
 			(err, data) => {
@@ -136,11 +136,11 @@ app.post('/api/chunk/new', (req, res) => {
 	});
 });
 
-app.get('/api/interval/history', (req, res) => {
-    var historySpan = req.session.intervalCount || 7;
+app.get('/api/interval/history', (req, res) => {//api for getting a history of intervals
+    var historySpan = req.session.intervalCount || 7;//if intervalCount is not provided it will return a 7 day history of intervals
 
     dataFunctions.getIntervalHistory(req.session.email, historySpan, (data) => {
-        res.send({intervals: data, message: 'intervals for past ' + historySpan + ' days'});
+        res.send({intervals: data, message: 'intervals for past ' + historySpan + ' days'});//intervals are sent back as an array of intervals
     });
 });
 
@@ -187,12 +187,12 @@ app.post('/api/chunk/interval', (req, res) => {
 				return;
 			}
 
-			Chunk.findOneAndUpdate(
+			Chunk.findOneAndUpdate(//update the current chunk
 				{ _id: req.body.chunkId },
 				{
-					$push: { intervals: interval._id },
-					$inc: {skillTotal: req.body.skill,
-							challengeTotal: req.body.challenge
+					$push: { intervals: interval._id },//push id of new interval to chunk's array of interval ids
+					$inc: {skillTotal: req.body.skill,//add the skill rating of current interval to chunk total
+							challengeTotal: req.body.challenge//add the challenge rating of curren interval to chunk total
 							}
 				},{new:true},
 				(err, data) => {
@@ -208,8 +208,8 @@ app.post('/api/chunk/interval', (req, res) => {
 					Chunk.findOneAndUpdate(
 						{_id: req.body.chunkId},
 						{
-							skillAverage: skillTotal/intervalLength,
-							challengeAverage: challengeTotal/intervalLength
+							skillAverage: skillTotal/intervalLength,//recalculate skill average for the chunk
+							challengeAverage: challengeTotal/intervalLength//recalculate challenge average for the chunk
 						},
 						(err, data) => {
 							if(err){
@@ -224,7 +224,7 @@ app.post('/api/chunk/interval', (req, res) => {
 	});
 });
 
-app.post('/api/chunk/done', (req, res) => {
+app.post('/api/chunk/done', (req, res) => {//when the chunk is finished the final survey is added to the chunk
 	Chunk.findOneAndUpdate(
 		{_id: req.body.chunkId}, {
 			timeSpent: req.body.timeSpent,
