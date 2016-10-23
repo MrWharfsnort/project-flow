@@ -6,13 +6,14 @@ var workTime = 0;
 var breakCount = 0;
 var startDate;
 var t;
+var initialBreakInterval = 2700000;
 
 
 function startTime() { //start the timer
 	timeStamps.push(Date.now()); //push a timestamp
 	startDate = new Date(); //set the date and time of chunk
 	$("#takeBreak").click(startBreak); //attatch click listener for taking breaks
-	setAutoBreak(2700000); //sets the initial autoBreak timeout at 45-minutes
+	setAutoBreak(initialBreakInterval); //sets the initial autoBreak timeout at 45-minutes
 }
 
 
@@ -30,7 +31,7 @@ function endBreak() {
 	breakTime = timeStamps[timeStamps.length - 1] - timeStamps[0];
 	$("#break").css("display", "none"); //hide the break div
 	$("#timer").css("display", "block"); //show the timer div
-	setAutoBreak(2700000); //reset that autoBreak timeout
+	setAutoBreak(initialBreakInterval); //reset that autoBreak timeout
 }
 
 function setAutoBreak(initial) {
@@ -40,7 +41,7 @@ function setAutoBreak(initial) {
 function skipBreak() {
 	var interval = 900000; //if choosing "no break" set interval to 15 minutes
 	var timeSinceBreak = Date.now() - timeStamps[timeStamps.length - 1];
-	var decrement =(timeSinceBreak - 2700000)/5;
+	var decrement =(timeSinceBreak - initialBreakInterval)/5;
 	decrement = Math.min(decrement, 780000); //maxes out decrement at 13 minutes
 	interval = interval - decrement;//each time 'no break' is chosen reduce interval;
 	setAutoBreak(interval);
@@ -66,7 +67,7 @@ function endTime() {
 
 function autoBreak() {//displays autoBreak prompt
 	var time = Date.now() - timeStamps[timeStamps.length - 1];
-	var suggest = Math.floor(time/180000);
+	var suggest = Math.floor(time / 60000 * 0.2);//adjujsts suggested break length to be 20% of the time since you last took a break
 	$("#suggested").text(suggest + " minutes is a good length for a break right now.");
 	$("#timer").css("display", "none");
 	$("#autoBreak").css("display", "block");
