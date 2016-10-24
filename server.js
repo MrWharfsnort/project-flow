@@ -30,10 +30,10 @@ app.use(session({
 
 app.get('/', (req, res) => {//get root of the site
 	if (!req.session.email) {//if not logged in, redirect to login page
-		res.sendFile(__dirname + '/public/siteFrontEnd/login.html');
+		res.sendFile(__dirname + '/public/loginFE.html');
 		return;
 	}
-	res.sendFile(__dirname + '/public/siteFrontEnd/index2.html'); //if logged in send index.html
+	res.sendFile(__dirname + '/public/index2.html'); //if logged in send index.html
 });
 
 
@@ -59,9 +59,18 @@ app.post('/api/login', (req, res) => {//login page
 	});
 });
 
+app.get('/dashboard', (req, res) => {
+	if (!req.session.email) {
+		res.sendFile(__dirname + '/public/loginFE.html');
+		return;
+	}
+
+	res.sendFile(__dirname + '/public/Dashboard/Theme/dashboard.html');
+});
+
 app.get('/data', (req, res) => {//data display page
 	if (!req.session.email) {//if not logged in redirect to login page
-		res.sendFile(__dirname + '/public/login.html');
+		res.sendFile(__dirname + '/public/loginFE.html');
 		return;
 	}
 	res.sendFile(__dirname + '/public/data.html');//otherwise send data.html
@@ -73,8 +82,9 @@ app.post('/api/logout', (req, res) => {//logout api
 });
 
 app.get('/api/register', (req, res) => {
-    res.sendFile(__dirname + '/public/siteFrontEnd/register.html');
+    res.sendFile(__dirname + '/public/register.html');
 });
+
 
 app.post('/api/register', (req, res) => {//api to register a new user
 	// find this email in the database and see if it already exists

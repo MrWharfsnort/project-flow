@@ -3,7 +3,7 @@
 	<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CURRENT | REFERENCES</title>
+    <title>CURRENT | LOG-IN</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -13,14 +13,14 @@
 	<link href='http://fonts.googleapis.com/css?family=Ruda:400,900,700' rel='stylesheet' type='text/css'>	
 	
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="./css/font-awesome.css">
 	<!-- Bootstrap -->
-	<link href="assets/css/bootstrap.css" rel="stylesheet">
+	<link href="./assets/css/bootstrap.css" rel="stylesheet">
 	<!-- Template Styles -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/colors/blue.css">    
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/colors/blue.css">    
 	<!-- Layer Slider -->
-	<link rel="stylesheet" href="layerslider/css/layerslider.css" type="text/css">
+	<link rel="stylesheet" href="./layerslider/css/layerslider.css" type="text/css">
 
   
 	<!-- Support for HTML5 -->
@@ -32,15 +32,18 @@
 	<!--[if lt IE 9]>
 		<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
-  
-	<script src="js/modernizr.js"></script>
+    <script src="./assets/js/jquery.js"></script>
+    <script src="../login.js"></script>
+    <script src="../main.js"></script>
+    <script src="../timer.js"></script>
+	<script src="./js/modernizr.js"></script>
   </head>
 <body>
-   <div class="topbar clearfix">
+     <div class="topbar clearfix">
         <div class="container">
             <div class="col-lg-12 text-right">
                 <div class="social_buttons">
-                    <a href="login.html" data-toggle="tooltip" data-placement="bottom" title="Log In"><i class="fa fa-sign-in"></i></a>
+                    <a href="loginFE.html" data-toggle="tooltip" data-placement="bottom" title="Log In"><i class="fa fa-sign-in"></i></a>
                 </div>
             </div>
         </div><!-- end container -->
@@ -66,15 +69,15 @@
                             <li><a href="research.html">Why Current Works</a>
                                 <ul class="dropdown">
                                     <li><a href="research.html">Learn About Psychological Flow</a></li>
-                                    <li><a href="#consciousnessAttention">Consciousness and Attention</a></li>
-                                    <li><a href="#workLeisure">Work & Leisure's Impact on Flow</a></li>
-                                    <li><a href="#timeOfDay">Impact of Time of Day</a></li>
-                                    <li><a href="#timeSpentWorking">Impact of Time Spent Working</a></li>
-                                    <li><a href="#takingBreaks">Impact of Taking Breaks</a></li>
-                                    <li><a href="#eating">Impact Of Eating</a></li>
-                                    <li><a href="#caffeine">Impact Of Caffeine</a></li>
-                                    <li><a href="#sleep">Impact Of Sleep</a></li>
-                                    <li><a href="#summation">Putting It All Together</a></li>
+                                    <li><a href="research.html#consciousnessAttention">Consciousness and Attention</a></li>
+                                    <li><a href="research.html#workLeisure">Impact of Work & Leisure</a></li>
+                                    <li><a href="research.html#timeOfDay">Impact of Time of Day</a></li>
+                                    <li><a href="research.html#timeSpentWorking">Impact of Time Spent Working</a></li>
+                                    <li><a href="research.html#takingBreaks">Impact of Taking Breaks</a></li>
+                                    <li><a href="research.html#eating">Impact Of Eating</a></li>
+                                    <li><a href="research.html#caffeine">Impact Of Caffeine</a></li>
+                                    <li><a href="research.html#sleep">Impact Of Sleep</a></li>
+                                    <li><a href="research.html#summation">Putting It All Together</a></li>
                                 </ul>
                             </li>
                             <li><a href="premiumPackage.html">Flow With Us</a>
@@ -85,7 +88,7 @@
                                     <li><a href="register.html">Register</a></li>
                                 </ul>
                             </li>
-                            <li><a href="login.html">Log In</a></li>
+                            <li class="active"><a href="loginFE.html">Log In</a></li>
                             <li><a href="support.html">Support Center</a></li>
                         </ul>
                         </div>
@@ -95,11 +98,14 @@
         </div><!-- end container -->
     </header><!-- end header -->
     
-    
 	<section class="post-wrapper-top">
     	<div class="container">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <h2>REFERENCES</h2>
+                <ul class="breadcrumb">
+                    <li><a href="index2.html">Home</a></li>
+                    <li>Login</li>
+                </ul>
+                <h2>LOGIN</h2>
             </div>
         </div>
 	</section><!-- end post-wrapper-top -->
@@ -107,30 +113,75 @@
     <section class="section1">
     	<div class="container clearfix">
 			<div class="content col-lg-12 col-md-12 col-sm-12 clearfix">
-			<h2 style="text-align: center">References</h2>
-			<div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
-            <div class="hangingIndent">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+                	<h4 class="title">
+                    	<span>Welcome Back!</span>
+                    </h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"s standard dummy text ever since the 1500s.</p>
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                </div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+                	<h4 class="title">
+                    	<span>Login Form</span>
+                    </h4>
 
+<div class="container">
+        <div class="row">
+            <div id="login">
+            <!-- login div -->
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    <button id="signIn" class="btn btn-secondary">Login</button>
+                    <button id="signUp" class="btn btn-secondary">Register</button>
+                </div>
+            </div>
+
+            <div id="newUser" style="display: none">
+            <!-- div for registering a new user -->
+                Name: <input type="text" id="name">
+                Password: <input type="password" id="newPassword">
+                Email: <input type="text" id="newEmail">
+                <button id="addUser" class="btn btn-secondary">Register</button>
+            </div>
+        </div>
+    </div><!-- 
+                	<form id="loginform" method="post" name="loginform" action="">
+						<div id="login">
+                        <div class="form-group">
+							<div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+								<input type="password" class="form-control" id="password" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+						<button type="submit" id="signIn" class="btn btn-secondary button">Login</button>
+						</div>
+                        </div>
+					</form> -->
+
+                </div><!-- end login -->
   			</div><!-- end content -->
-		</div><!-- end container -->
+        </div><!-- end container -->
 	</section><!-- end section -->
-   
 
+
+
+
+
+
+
+   
  <footer class="footer">
         <div class="container">
             <div class="widget col-lg-3 col-md-3 col-sm-12">
@@ -179,7 +230,7 @@
                         <ul class="menu">
                             <li><a href="index2.html">Home</a></li>
                             <li><a href="about.html">About</a></li>
-                            <li><a href="login.html">Log In</a></li>
+                            <li><a href="loginFE.html">Log In</a></li>
                             <li><a href="support.html">Contact</a></li>
                         </ul>
                     </div>
@@ -189,15 +240,14 @@
     </footer><!-- end footer -->
     <div class="dmtop">Scroll to Top</div>
 
-
       <!-- Main Scripts-->
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.unveilEffects.js"></script>	
-	<script src="js/retina-1.1.0.js"></script>
-	<script src="js/jquery.hoverex.min.js"></script>
-    <script src="js/jetmenu.js"></script>	
-	<script src="js/jquery.jigowatt.js"></script>
-	<script src="js/custom.js"></script>
+
+	<script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/jquery.unveilEffects.js"></script>	
+	<script src="./js/retina-1.1.0.js"></script>
+	<script src="./js/jquery.hoverex.min.js"></script>
+    <script src="./js/jetmenu.js"></script>	
+	<script src="./js/jquery.jigowatt.js"></script>
+	<script src="./js/custom.js"></script>
 	</body>
 </html>

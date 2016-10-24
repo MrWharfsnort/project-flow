@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <link rel="shortcut icon" href="http://alvarez.is/demo/dashio/favicon.png">
+
+  <title>CURRENT | DASHBOARD</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/Dashboard/Theme/assets/css/bootstrap.css" rel="stylesheet">
+  <!--external css-->
+  <link href="/Dashboard/Theme/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/Dashboard/Theme/assets/css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="/Dashboard/Theme/assets/js/gritter/css/jquery.gritter.css" />
+
+  <!-- Custom styles for this template -->
+  <link href="/Dashboard/Theme/assets/css/style.css" rel="stylesheet">
+  <link href="/Dashboard/Theme/assets/css/style-responsive.css" rel="stylesheet">
+
+  <script src="/Dashboard/Theme/assets/js/chart-master/Chart.js"></script>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <script src="./Dashboard/Theme/assets/js/jquery.js"></script>
+      <!-- <script src="../../login.js"></script> -->
+      <!-- <script src="./Dashboard/Theme/dashboard.js"></script> -->
+      <script src="../../main.js"></script>
+      <script src="../../timer.js"></script>
+
+
+
+
+    </head>
+
+     <body onload="getTime()">
+
+      <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+
+      <header class="header black-bg">
+        
+        <!--logo start-->
+        <a class="logo"><b>C<span>URRENT</span></b></a>
+        <!--logo end-->
+        <div class="nav notify-row" id="top_menu">
+          <!--  notification start -->
+         
+            <!-- <button id="backDash"> <i class="fa fa-dashboard"></i>
+                <span>Dashboard</span></button> -->
+            
+               <button id="showTimer" class="button btn-secondary" style="display: block"> <i class="fa fa-clock-o"></i>
+                <span>Start Timer</span></button>
+          
+          
+          <!--  notification end -->
+        </div>
+        <div class="top-menu">
+         <ul class="nav pull-right top-menu">
+          <li><a id="logout" class="logout" style="display: block">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+    <!--header end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+       <!--  <aside>
+          <div id="sidebar"  class="nav-collapse ">-->
+            <!--sidebar menu start-->
+<!--             <ul class="sidebar-menu" id="nav-accordion">
+
+             <p class="centered"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQMWgl-ce4JS0SAxSOUK6a3XSjyRW-fqBeUyh9JdDuUFWd0S6" width="80"></p>
+             <h5 class="centered">User Dashboard</h5>
+
+             <li class="mt">
+               
+            </li> 
+            <li class="mt" style="margin-top: 0; margin-bottom: 0">
+               <button id="startTimer" class="btn btn-secondary"> <i class="fa fa-clock-o"></i>
+                <span id="startTimer">Start Timer</span></button>
+            </li>
+          </ul> --> 
+          <!-- sidebar menu end-->
+      <!--   </div>
+      </aside> -->
+      <!--sidebar end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+
+
+ 
+
+
+      <section id="main-content" class="col-lg-9">
+       <div id="dashBody" style="display: block">
+        <section class="wrapper">
+
+          <div class="row">
+            <div class="col-lg-9 main-chart">
+
+              <!--CUSTOM CHART START -->
+              <div class="border-head">
+                <h3>HOURS LOGGED</h3>
+              </div>
+              <div class="custom-bar-chart">
+                <ul class="y-axis">
+                  <li><span>20</span></li>
+                  <li><span>16</span></li>
+                  <li><span>12</span></li>
+                  <li><span>8</span></li>
+                  <li><span>4</span></li>
+                  <li><span>0</span></li>
+                </ul>
+                <div class="bar">
+                  <div class="title">Day 1</div>
+                  <div class="value tooltips" data-original-title="16" data-toggle="tooltip" data-placement="top">80%</div>
+                </div>
+                <div class="bar ">
+                  <div class="title">Day 2</div>
+                  <div class="value tooltips" data-original-title="10" data-toggle="tooltip" data-placement="top">50%</div>
+                </div>
+                <div class="bar ">
+                  <div class="title">Day 3</div>
+                  <div class="value tooltips" data-original-title="11" data-toggle="tooltip" data-placement="top">55%</div>
+                </div>
+                <div class="bar ">
+                  <div class="title">Day 4</div>
+                  <div class="value tooltips" data-original-title="9" data-toggle="tooltip" data-placement="top">45%</div>
+                </div>
+                <div class="bar">
+                  <div class="title">Day 5</div>
+                  <div class="value tooltips" data-original-title="6.4" data-toggle="tooltip" data-placement="top">32%</div>
+                </div>
+                <div class="bar">
+                  <div class="title">Day 6</div>
+                  <div class="value tooltips" data-original-title="12.4" data-toggle="tooltip" data-placement="top">62%</div>
+                </div>
+                <div class="bar">
+                  <div class="title">Day 7</div>
+                  <div class="value tooltips" data-original-title="15" data-toggle="tooltip" data-placement="top">75%</div>
+                </div>
+              </div>
+              <!--custom chart end-->
+
+              <div class="row mt">
+                <!-- SERVER STATUS PANELS -->
+                <div class="col-md-4 col-sm-4 mb">
+                  <div class="grey-panel pn donut-chart">
+                   <div class="grey-header">
+                     <h5>SERVER LOAD</h5>
+                   </div>
+                   <canvas id="serverstatus01" height="120" width="120"></canvas>
+                   <script>
+                     var doughnutData = [
+                     {
+                      value: 70,
+                      color:"#FF6B6B"
+                    },
+                    {
+                      value : 30,
+                      color : "#fdfdfd"
+                    }
+                    ];
+                    var myDoughnut = new Chart(document.getElementById("serverstatus01").getContext("2d")).Doughnut(doughnutData);
+                  </script>
+                  <div class="row">
+                   <div class="col-sm-6 col-xs-6 goleft">
+                    <p>Usage<br/>Increase:</p>
+                  </div>
+                  <div class="col-sm-6 col-xs-6">
+                   <h2>21%</h2>
+                 </div>
+               </div>
+             </div><! --/grey-panel -->
+           </div><!-- /col-md-4-->
+
+
+           <div class="col-md-4 col-sm-4 mb">
+            <div class="darkblue-panel pn">
+             <div class="darkblue-header">
+               <h5>DROPBOX STATICS</h5>
+             </div>
+             <canvas id="serverstatus02" height="120" width="120"></canvas>
+             <script>
+               var doughnutData = [
+               {
+                value: 60,
+                color:"#1c9ca7"
+              },
+              {
+                value : 40,
+                color : "#f68275"
+              }
+              ];
+              var myDoughnut = new Chart(document.getElementById("serverstatus02").getContext("2d")).Doughnut(doughnutData);
+            </script>
+            <p>April 17, 2014</p>
+            <footer>
+             <div class="pull-left">
+              <h5><i class="fa fa-hdd-o"></i> 17 GB</h5>
+            </div>
+            <div class="pull-right">
+              <h5>60% Used</h5>
+            </div>
+          </footer>
+        </div><! -- /darkblue panel -->
+      </div><!-- /col-md-4 -->
+
+      <div class="col-md-4 col-sm-4 mb">
+       <!-- REVENUE PANEL -->
+       <div class="green-panel pn">
+        <div class="green-header">
+         <h5>REVENUE</h5>
+       </div>
+       <div class="chart mt">
+         <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,464,655]"></div>
+       </div>
+       <p class="mt"><b>$ 17,980</b><br/>Month Income</p>
+     </div>
+   </div><!-- /col-md-4 -->
+
+ </div><!-- /row -->
+
+
+ <div class="row">
+  <!-- WEATHER PANEL -->
+  <div class="col-md-4 mb">
+
+  </div><!-- /col-md-4-->
+
+
+</div>	                      
+
+<div class="row">
+
+
+</div><!-- /row -->
+
+<div class="row">
+  
+
+
+<div class="col-md-4 col-sm-4 mb">
+ <div class="green-panel pn">
+  <div class="green-header">
+   <h5>DISK SPACE</h5>
+ </div>
+ <canvas id="serverstatus03" height="120" width="120"></canvas>
+ <script>
+   var doughnutData = [
+   {
+    value: 60,
+    color:"#2b2b2b"
+  },
+  {
+    value : 40,
+    color : "#fffffd"
+  }
+  ];
+  var myDoughnut = new Chart(document.getElementById("serverstatus03").getContext("2d")).Doughnut(doughnutData);
+</script>
+<h3>60% USED</h3>
+</div>
+</div><! --/col-md-4 -->
+</div><!-- /row -->	
+
+</div><!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->                  
+
+      <div class="col-lg-3 ds">
+        <!--COMPLETED ACTIONS DONUTS CHART-->
+        <div class="donut-main">
+          <h4>COMPLETED ACTIONS & PROGRESS</h4>
+          <canvas id="newchart" height="130" width="130"></canvas>
+          <script>
+           var doughnutData = [
+           {
+            value: 70,
+            color:"#3498db"
+          },
+          {
+            value : 30,
+            color : "#fdfdfd"
+          }
+          ];
+          var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
+        </script>
+      </div>
+
+      <!--NEW EARNING STATS -->
+      <div class="panel terques-chart">
+        <div class="panel-body">
+          <div class="chart">
+            <div class="centered">
+              <span>FLOW OVER TIME</span>
+              <strong> 72% </strong>
+            </div>
+            <br>
+            <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
+          </div>
+        </div>
+      </div>
+      <!--new earning end-->
+
+      <!-- CALENDAR-->
+      <div id="calendar" class="mb">
+        <div class="panel green-panel no-margin">
+          <div class="panel-body">
+            <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
+              <div class="arrow"></div>
+              <h3 class="popover-title" style="disadding: none;"></h3>
+              <div id="date-popover-content" class="popover-content"></div>
+            </div>
+            <div id="my-calendar"></div>
+          </div>
+        </div>
+      </div><!-- / calendar -->
+
+    </div><!-- /col-lg-3 -->
+  </div><! --/row -->
+</section>
+</section>
+</div>
+
+<div id="timeBody" style="display: none"> 
+  <div class="container">
+
+   <div id="showtime"></div>
+   <div class="col-lg-4">
+     <!-- <div class="lock-screen">
+      <div style="display: inline-block;">
+        <h2 style="padding-right: 10px"><a data-toggle="modal" href="#breakModal"><i class="fa fa-pause"  style="color:#000033"></i></a></h2>
+        <p style="color:#000033; padding-right: 10px"> Take A Break</p> -->
+
+        <!-- Modal -->
+     <!--    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="breakModal" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Welcome Back</h4>
+              </div>
+              <div class="modal-body">
+               <p class="centered"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQMWgl-ce4JS0SAxSOUK6a3XSjyRW-fqBeUyh9JdDuUFWd0S6" width="80"></p>
+               <div class="preBreak">
+                <h3>Pre-break survey:</h3>
+                How challenged do you feel by what you are working on, 1 being not challenged, 10 being extremely challenged: <select name="challenge" id="challenge" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              How much of what you are working on involves the use of your current skill set, 1 being you are not using any of your skills in this area, 10 being you are using all of the skills you already have relating to the task: <select name="skill" id="skill" class="form-control">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+          <div class="postBreak">
+            <h3>Post-break survey</h3>
+            Breaktime Activity: <input type="text" id="activity" class="form-control">
+            <br>
+            Have you caffinated since your last break?
+            <select name="caffeine" id="caffeine" class="form-control">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+            Have you eaten since your last break?
+            <select name="food" id="food" class="form-control">
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select> 
+          </div>    
+        </div>
+        <div class="modal-footer centered">
+          <button data-dismiss="modal" class="btn btn-theme01" type="button">Cancel</button>
+          <button id="endBreak" class="btn btn-secondary">Back to Work</button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- modal -->
+
+<!-- 
+    <div style="display: inline-block">
+      <h2 style="padding-left: 10px"><a data-toggle="modal" href="#endModal"><i class="fa fa-clock-o"  style="color:#000033"></i></a></h2>
+      <p style="color:#000033; padding-left: 10px">End Timer</p> -->
+
+      <!-- Modal -->
+   <!--    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="endModal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">End Break Survey</h4>
+            </div>
+            <div class="modal-body">
+              <p class="centered"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQMWgl-ce4JS0SAxSOUK6a3XSjyRW-fqBeUyh9JdDuUFWd0S6" width="80"></p>
+              How many hours of sleep did you get last night?
+              <select name="sleep" id="sleep" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10+</option>
+              </select>
+              How many meals have you eaten today?
+              <select name="meals" id="meals" class="form-control">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select> -->
+              <!-- optional task input field -->
+  <!--           </div>
+            <div class="modal-footer centered">
+              <button data-dismiss="modal" class="btn btn-theme01" type="button">Cancel</button>
+              <button id="submitSurvey" class="btn btn-secondary">Submit Info</button>
+            </div>
+          </div>
+        </div>
+ -->
+        <!-- modal -->
+
+
+        <!-- Modal -->
+       <!--  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="autoBreak" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Now is a good time to take a break</h4>
+              </div>
+              <div class="modal-body">
+                <p class="centered"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQMWgl-ce4JS0SAxSOUK6a3XSjyRW-fqBeUyh9JdDuUFWd0S6" width="80"></p>
+                <p class="centered"><img class="" width="80" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeQMWgl-ce4JS0SAxSOUK6a3XSjyRW-fqBeUyh9JdDuUFWd0S6"></p>
+                <p>In order to maintain optimal cognitive functioning it is important to take some time away and let your mind wander freely.</p>
+                <p></p>
+                <p id="suggested"></p>
+              </div>
+              <div class="modal-footer centered">
+                <button id="yesBreak" class="btn btn-secondary">Okay, Break Time</button>
+                <button id="noBreak" class="btn btn-secondary">Keep Working</button>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- modal -->
+      <!--   </div>
+
+
+        <div id="autoBreak" style="display: none"> -->
+          <!-- Auto prompt to take a break -->
+          <!-- <h3>Now is a good time to take a break</h3>
+
+          <button id="yesBreak" class="btn btn-secondary">Okay, Break Time</button>
+          <button id="noBreak" class="btn btn-secondary">Keep Working</button>
+        </div>
+
+ -->
+
+
+
+<div class="container">
+    <div class="row">
+      <div id="timer">
+      <!-- This is the div to display once user logs in, here they can start a tiime chunk, take a break -->
+        <!-- <button id="startTimer" class="btn btn-secondary">Start Working</button> -->
+        <button id="endTimer" class="btn btn-secondary" style="display: none">Finish</button>
+        <button id="takeBreak" class="btn btn-secondary">Take A Break</button>
+
+      </div>
+
+      <div id="autoBreak" style="display: none">
+        <!-- Auto prompt to take a break -->
+        <h3>Now is a good time to take a break</h3>
+        <p>In order to maintain optimal cognitive functioning it is important to take some time away and let your mind wander freely.</p>
+        <p id="suggested"></p>
+        <button id="yesBreak" class="btn btn-secondary">Okay, Break Time</button>
+        <button id="noBreak" class="btn btn-secondary">Keep Working</button>
+      </div>
+
+      <div id="break" style="display: none">
+  <!-- todo: break survey goes here -->
+        <!-- optional task input field -->
+        <div class="preBreak">
+          <h3>Pre-break survey:</h3>
+          How challenged do you feel by what you are working on, 1 being not challenged, 10 being extremely challenged: <select name="challenge" id="challenge" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          How much of what you are working on involves the use of your current skill set, 1 being you are not using any of your skills in this area, 10 being you are using all of the skills you already have relating to the task: <select name="skill" id="skill" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        <div class="postBreak">
+          <h3>Post-break survey</h3>
+          Breaktime Activity: <input type="text" id="activity" class="form-control">
+          <br>
+          Have you caffinated since your last break?
+          <select name="caffeine" id="caffeine" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+          Have you eaten since your last break?
+          <select name="food" id="food" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <button id="endBreak" class="btn btn-secondary">Back to Work</button>
+      </div>
+
+      <div id="finished" style="display: none">
+  <!-- todo: finished time chuck survey goes here -->
+        How many hours of sleep did you get last night?
+        <select name="sleep" id="sleep" class="form-control">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10+</option>
+        </select>
+        How many meals have you eaten today?
+        <select name="meals" id="meals" class="form-control">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <!-- optional task input field -->
+        <button id="submitSurvey" class="btn btn-secondary">Submit Info</button>
+      </div>
+
+      <div id="data" style="display: none">
+
+
+      </div>
+
+    </div><!--/lock-screen -->
+  </div><!-- /col-lg-4 -->
+
+</div><!-- /container -->
+
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/Dashboard/Theme/assets/js/jquery.js"></script>
+<script src="/Dashboard/Theme/assets/js/bootstrap.min.js"></script>
+
+<!--BACKSTRETCH-->
+<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+<script type="text/javascript" src="/Dashboard/Theme/assets/js/jquery.backstretch.min.js"></script>
+<script>
+  $.backstretch("http://eskipaper.com/images/water-background-16.jpg", {speed: 500});
+</script>
+
+<script>
+  function getTime()
+  {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+            // add a zero in front of numbers<10
+            m=checkTime(m);
+            s=checkTime(s);
+            document.getElementById('showtime').innerHTML=h+":"+m+":"+s;
+            t=setTimeout(function(){getTime();},500);
+          }
+
+          function checkTime(i)
+          {
+            if (i<10)
+            {
+              i="0" + i;
+            }
+            return i;
+          }
+        </script>
+
+
+      </div>
+      </div>
+
+
+      <!--main content end-->
+      <!--footer start-->
+      <footer class="site-footer">
+
+      </footer>
+      <!--footer end-->
+    </section>
+
+
+
+
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    
+    <!-- <script src="/Dashboard/Theme/assets/js/jquery-1.8.3.min.js"></script> -->
+    <script src="/Dashboard/Theme/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/Dashboard/Theme/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/Dashboard/Theme/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/Dashboard/Theme/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/Dashboard/Theme/assets/js/jquery.sparkline.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="/Dashboard/Theme/assets/js/common-scripts.js"></script>
+    
+    <script type="text/javascript" src="/Dashboard/Theme/assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/Dashboard/Theme/assets/js/gritter-conf.js"></script>
+
+    <!--script for this page-->
+    <script src="/Dashboard/Theme/assets/js/sparkline-chart.js"></script>    
+    <script src="/Dashboard/Theme/assets/js/zabuto_calendar.js"></script>	
+
+    <script type="application/javascript">
+      $(document).ready(function () {
+        $("#date-popover").popover({html: true, trigger: "manual"});
+        $("#date-popover").hide();
+        $("#date-popover").click(function (e) {
+          $(this).hide();
+        });
+        
+
+      function myNavFunction(id) {
+        $("#date-popover").hide();
+        var nav = $("#" + id).data("navigation");
+        var to = $("#" + id).data("to");
+        console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+      }
+    </script>
+
+
+
+
+
+<!-- THIS IS THE JAVASCRIPT WE ARE WRITING FOR THIS PAGE -->
+<script type="text/javascript">
+  $("#showTimer").click(function (evt) {
+    startTime();  //calls startTime in timer.js
+    $("#dashBody").css("display", "none"); //hide start timer button
+    $("#showTimer").css("display", "none"); 
+    $("#timeBody").css("display", "block"); //show stop timer button
+    $("#logout").css("display", "none");
+    $("#endTimer").click(endTime); //add click listener
+    $("#endTimer").css("display", "inline");
+    $.post("/api/chunk/new", {}, function(res){
+      chunkId = res.chunkId;
+    });
+  });
+
+$("#endBreak").click(function(){ //click listener to end break on break div
+    endBreak();
+    $.post("/api/chunk/interval", {
+      chunkId: chunkId,
+      date: startDate,
+      timeFromStart: breakTime,
+      challenge: $("#challenge").val(),
+      skill: $("#skill").val(),
+      activity: $("#activity").val(),
+      caffeine: $("#caffeine").val(),
+      food: $("#food").val()
+    }, function(res) {
+      console.log(res);
+    });
+  });
+
+
+
+
+</script>
+
+
+
+  </body>
+  </html>

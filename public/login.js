@@ -9,7 +9,7 @@ $(document).ready(function(){
 		}, function(response){
 			if(response.status === "success") { //if logged in
 				console.log(response);
-				window.location = "/";
+				window.location = "/dashboard";
 			}
 		});
 	});
