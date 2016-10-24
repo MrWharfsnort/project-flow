@@ -179,7 +179,7 @@ var activityLabel = [];
 var caffeineArr = [];
 var snackArr = [];
 
-console.log(intervalArray);
+console.log(intervalArray);//i need to sort these by time
 function orderByTime(){
     intervalArray.sort(intervalArray.timeFromStart);
 }
@@ -206,7 +206,7 @@ function getActivity (arr){
 }
 getActivity(intervalArray);
 
-function getSnacks (arr){
+function getSnacks (arr){// for some reason bot caffeine and snacks arrays have more values should be there
     for(var i =0; i <arr.length; i++){
         if(arr[i].snack === false){
             snackArr.push("null");
@@ -232,7 +232,10 @@ $(function () {
 
         title: {
             text: chartTitle
-        } ,
+        } , 
+        yAxis: {
+            title: "Valbues" 
+        },
         xAxis: {
             categories: activityLabel
         },
@@ -251,6 +254,57 @@ $(function () {
         }, {
             name: 'Caffeine',//not sure why they produce more values than in array
             data: caffeineArr
+        }]
+    });
+});
+var sleepArr = [];
+var mealsArr = [];
+
+
+console.log(chunkArray);//i need to sort these by time
+function orderByTime(){
+   
+}
+
+
+function getHoursSlept (arr){
+    for(var i in arr){
+        sleepArr.push(arr[i].hoursSlept);
+    }      
+}
+getHoursSlept(chunkArray);
+
+function getMealsEaten (arr){
+    for(var i in arr){
+        mealsArr.push(arr[i].mealsEaten);
+    }  
+}
+getMealsEaten(chunkArray);
+
+
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: chartTitle
+        } , 
+        yAxis: {
+            title: "Valbues" 
+        },
+        xAxis: {
+            categories: activityLabel
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Hours of Sleep',
+            data: sleepArr
+        }, {
+            name: 'Meals Eaten',
+            data: mealsArr
         }]
     });
 });
