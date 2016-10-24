@@ -7,6 +7,8 @@ module.exports = (mongoose, Interval) => {
 	mealsEaten: Number,//not sure really how we'll measure this
 	intervals: [String],
 	skillTotal: Number,
+    snackTotal: Number,
+    caffeineTotal: Number,
 	challengeTotal: Number,
 	skillAverage: Number,
 	challengeAverage: Number
