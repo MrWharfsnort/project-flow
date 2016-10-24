@@ -21,18 +21,19 @@
   <link href="/Dashboard/Theme/assets/css/style.css" rel="stylesheet">
   <link href="/Dashboard/Theme/assets/css/style-responsive.css" rel="stylesheet">
 
-  <script src="/Dashboard/Theme/assets/js/chart-master/Chart.js"></script>
+    <script src="./Dashboard/Theme/assets/js/jquery.js"></script>
+
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-      <script src="./Dashboard/Theme/assets/js/jquery.js"></script>
       <!-- <script src="../../login.js"></script> -->
       <!-- <script src="./Dashboard/Theme/dashboard.js"></script> -->
       <script src="../../main.js"></script>
       <script src="../../timer.js"></script>
+      <script src="../../charts.js"></script>
 
 
 
@@ -57,7 +58,7 @@
 
             <!-- <button id="backDash"> <i class="fa fa-dashboard"></i>
             <span>Dashboard</span></button> -->
-            
+
             <button id="showTimer" class="btn-theme btn btn-primary" style="display: block"> <i class="fa fa-clock-o"></i>
               <span>Start Timer</span></button>
 
@@ -85,13 +86,13 @@
              <h5 class="centered">User Dashboard</h5>
 
              <li class="mt">
-               
-            </li> 
+
+            </li>
             <li class="mt" style="margin-top: 0; margin-bottom: 0">
                <button id="startTimer" class="btn btn-secondary"> <i class="fa fa-clock-o"></i>
                 <span id="startTimer">Start Timer</span></button>
             </li>
-          </ul> --> 
+          </ul> -->
           <!-- sidebar menu end-->
       <!--   </div>
     </aside> -->
@@ -111,14 +112,15 @@
         <section class="wrapper">
 
           <div class="row">
-            <div class="col-lg-9 main-chart">
+            <div class="col-lg-12 main-chart">
 
               <!--CUSTOM CHART START -->
               <div class="border-head">
                 <h3>HOURS LOGGED</h3>
               </div>
               <div class="custom-bar-chart">
-                <ul class="y-axis">
+            </div>
+                <!--<ul class="y-axis">
                   <li><span>20</span></li>
                   <li><span>16</span></li>
                   <li><span>12</span></li>
@@ -154,9 +156,8 @@
                   <div class="title">Day 7</div>
                   <div class="value tooltips" data-original-title="15" data-toggle="tooltip" data-placement="top">75%</div>
                 </div>
-              </div>
+              </div>-->
               <!--custom chart end-->
-
               <div class="row mt">
                 <!-- SERVER STATUS PANELS -->
                 <div class="col-md-4 col-sm-4 mb">
@@ -244,7 +245,7 @@
   </div><!-- /col-md-4-->
 
 
-</div>	                      
+</div>
 
 <div class="row">
 
@@ -277,35 +278,14 @@
   <h3>60% USED</h3>
 </div>
 </div><! --/col-md-4 -->
-</div><!-- /row -->	
+</div><!-- /row -->
 
 </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
 
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-
-      <div class="col-lg-3 ds">
-        <!--COMPLETED ACTIONS DONUTS CHART-->
-        <div class="donut-main">
-          <h4>COMPLETED ACTIONS & PROGRESS</h4>
-          <canvas id="newchart" height="130" width="130"></canvas>
-          <script>
-           var doughnutData = [
-           {
-            value: 70,
-            color:"#3498db"
-          },
-          {
-            value : 30,
-            color : "#fdfdfd"
-          }
-          ];
-          var myDoughnut = new Chart(document.getElementById("newchart").getContext("2d")).Doughnut(doughnutData);
-        </script>
-      </div>
-
+      *********************************************************************************************************************************************************** -->
       <!--NEW EARNING STATS -->
       <div class="panel terques-chart">
         <div class="panel-body">
@@ -397,8 +377,8 @@
             <select name="food" id="food" class="form-control">
               <option value="true">Yes</option>
               <option value="false">No</option>
-            </select> 
-          </div>    
+            </select>
+          </div>
         </div>
         <div class="modal-footer centered">
           <button data-dismiss="modal" class="btn btn-theme01" type="button">Cancel</button>
@@ -409,7 +389,7 @@
 
     <!-- modal -->
 
-<!-- 
+<!--
     <div style="display: inline-block">
       <h2 style="padding-left: 10px"><a data-toggle="modal" href="#endModal"><i class="fa fa-clock-o"  style="color:#000033"></i></a></h2>
       <p style="color:#000033; padding-left: 10px">End Timer</p> -->
@@ -498,10 +478,10 @@
 
       <!-- <div class="container">
       <div class="row"> -->
-        <div id="timeBody" style="display: none;"> 
+        <div id="timeBody" style="display: none;">
           <div class="container">
-           
-          
+
+
             <div id="timer">
              <div class="row">
               <div class="col-xs-4 col-xs-offset-5 col-md-4 col-md-offset-5" >
@@ -509,7 +489,7 @@
               <div id="showtime" style="text-align: left"></div>
               <!-- This is the div to display once user logs in, here they can start a tiime chunk, take a break -->
               <!-- <button id="startTimer" class="btn btn-secondary">Start Working</button> -->
-            
+
                 <div style="white-space: nowrap">
                   <button id="endTimer" class="btn-default btn btn-primary" style="display: none;">Finish</button>
                   <button id="takeBreak" class="btn-default btn btn-primary">Take A Break</button>
@@ -524,7 +504,7 @@
          <div class="container">
           <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-            <div id="autoBreak" style="display: none;"> 
+            <div id="autoBreak" style="display: none;">
              <div style="background-color: rgba(52,152,219,0.85); color: white; margin-top:40%">
               <!-- Auto prompt to take a break -->
               <h3>Now is a good time to take a break</h3>
@@ -670,6 +650,10 @@
   <!-- js placed at the end of the document so the pages load faster -->
 
   <!-- <script src="/Dashboard/Theme/assets/js/jquery-1.8.3.min.js"></script> -->
+      <script src="/Dashboard/Theme/assets/js/chart-master/Chart.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="charts.js"></script>
   <script src="/Dashboard/Theme/assets/js/bootstrap.min.js"></script>
   <script class="include" type="text/javascript" src="/Dashboard/Theme/assets/js/jquery.dcjqaccordion.2.7.js"></script>
   <script src="/Dashboard/Theme/assets/js/jquery.scrollTo.min.js"></script>
@@ -684,8 +668,8 @@
   <script type="text/javascript" src="/Dashboard/Theme/assets/js/gritter-conf.js"></script>
 
   <!--script for this page-->
-  <script src="/Dashboard/Theme/assets/js/sparkline-chart.js"></script>    
-  <script src="/Dashboard/Theme/assets/js/zabuto_calendar.js"></script>	
+  <script src="/Dashboard/Theme/assets/js/sparkline-chart.js"></script>
+  <script src="/Dashboard/Theme/assets/js/zabuto_calendar.js"></script>
 
   <script type="application/javascript">
     $(document).ready(function () {
@@ -714,7 +698,7 @@
         getTime();
     startTime();  //calls startTime in timer.js
     $("#dashBody").css("display", "none"); //hide start timer button
-    $("#showTimer").css("display", "none"); 
+    $("#showTimer").css("display", "none");
     $("#timeBody").css("display", "block"); //show stop timer button
     $("#logout").css("display", "none");
     $("#endTimer").click(endTime); //add click listener

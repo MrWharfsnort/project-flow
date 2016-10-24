@@ -76,7 +76,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 					} else {
 						floArr.push(null);
 					}
-				}  
+				}
 				console.log("floarr" + floArr);
 			}
 			getMadFlo(intervalArray);
@@ -102,7 +102,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 				}
 			}
 			sleepSlept(chunks);
-			
+
 			console.log(caffeineArr);
 			console.log(snackArr);
 			console.log(mealsArr);
@@ -110,7 +110,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 
 			//the high chart function
 			$(function () {
-				$('#container').highcharts({
+				$('.custom-bar-chart').highcharts({
 					chart: {
 						zoomType: 'xy'
 					},
@@ -134,7 +134,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						    color: 'red', // Color value
 						    dashStyle: 'dot', // Style of the plot line. Default to solid
 						    value: 0, // Value of where the line will appear
-						    width: 5 // Width of the line    
+						    width: 5 // Width of the line
 						 }],
 						title: {
 							text: 'floPoint® metric',
