@@ -10,7 +10,7 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 			} else {
 				chunkIds = data[0].chunks.slice(data[0].chunks.length - days);
 			}
-
+			
 			Chunk.find({_id: { $in: chunkIds}}, (err, chunks) => {
 				if(!cb) {
 					days(chunks);
@@ -37,11 +37,11 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 
 	this.getIntervalHistory = function(email, number, cb) {
 		
-		this.getChunkHistory(email, number, function(data) {
+		this.getChunkHistory(email, number, function(chunks) {
 			var intervalIds = [];
-			for (var i = 0; i < data.length; i++) { //create an array of interval ids for the specified number of days
-				for (var j = 0; j < data[i].intervals.length; j++){
-					intervalIds.push(data[i].intervals[j]);
+			for (var i = 0; i < chunks.length; i++) { //create an array of interval ids for the specified number of days
+				for (var j = 0; j < chunks[i].intervals.length; j++){
+					intervalIds.push(chunks[i].intervals[j]);
 				}
 			}
 
@@ -49,12 +49,7 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 				if(err) {
 					return console.log("error from dataFunctions getIntervalHistory: " + err);
 				}
-
-				if(!cb) {
-					number(data);
-				} else {
-					cb(data);
-				}
+				cb(data);
 			});
 
 		});	
