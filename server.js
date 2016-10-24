@@ -48,7 +48,7 @@ app.post('/api/login', (req, res) => {//login page
 	User.find({email: req.body.email}, (err, user) => {//search for provided email and password in user database
 		if (user.length === 0) {
 			res.status(401);
-			res.send({status: 'invalid', message: 'invalid username/passord'});
+			res.send({status: 'invalid', message: 'invalid username/password'});
 		} else if (user[0].password !== req.body.password) {
 			res.status(401);
 			res.send({status: 'invalid', message: 'invalid username/password'});
