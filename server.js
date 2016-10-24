@@ -72,7 +72,7 @@ app.post('/api/logout', (req, res) => {//logout api
 	res.send({status: 'logout', message: 'succesfully logged out'});
 });
 
-app.get('/api/register', (req, res) => {
+app.get('/register', (req, res) => {
     res.sendFile(__dirname + '/public/siteFrontEnd/register.html');
 });
 
