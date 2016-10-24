@@ -16,7 +16,7 @@ function startTime() { //start the timer
 	setAutoBreak(initialBreakInterval); //sets the initial autoBreak timeout at 45-minutes
 }
 
-
+ 
 function startBreak() {
 	timeStamps.push(Date.now());//pushes a break timestamp
 	clearTimeout(t); //stops the autoBreak from firing while already on a break
