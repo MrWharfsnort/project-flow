@@ -130,11 +130,17 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 							style: {
 								color: Highcharts.getOptions().colors[2]
 							}
-						},
+						},  plotLines: [{
+						    color: 'red', // Color value
+						    dashStyle: 'dot', // Style of the plot line. Default to solid
+						    value: 0, // Value of where the line will appear
+						    width: 5 // Width of the line    
+						 }],
 						title: {
 							text: 'floPoint® metric',
 							style: {
 								color: Highcharts.getOptions().colors[2]
+
 							}
 						},
 						opposite: true
