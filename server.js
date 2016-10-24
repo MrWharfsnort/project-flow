@@ -30,12 +30,15 @@ app.use(session({
 
 app.get('/', (req, res) => {//get root of the site
 	if (!req.session.email) {//if not logged in, redirect to login page
-		res.sendFile(__dirname + '/public/loginFE.html');
+		res.sendFile(__dirname + '/public/index2.html');
 		return;
 	}
-	res.sendFile(__dirname + '/public/index2.html'); //if logged in send index.html
+	res.sendFile(__dirname + '/public/Dashboard/Theme/dashboard.html'); //if logged in send index.html
 });
 
+app.get('/login', (req, res) => {
+	res.sendFile(__dirname + 'loginFE.html');
+});
 
 app.post('/api/login', (req, res) => {//login page
 	if (!req.body.email || !req.body.password) {//if no email or password provided send error
