@@ -50,9 +50,11 @@ $(document).ready(function () {
 			sleep: $("#sleep").val(),
 			meals: $("#meals").val()
 		};
-		console.log(survey);
+		
 		$.post("/api/chunk/done", survey, function(res){
-			console.log(res);
+			if(res === "success") {
+				window.location = "/data";
+			}
 		});
 		$("#finished").css("display", "none");
 		$("#data").css("display", "block");
