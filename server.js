@@ -4,7 +4,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
-var PORT = process.env.port || 8000;
+var PORT = process.env.port || 8001;
 
 mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
 mongoose.connect("mongodb://localhost");
@@ -30,10 +30,10 @@ app.use(session({
 
 app.get('/', (req, res) => {//get root of the site
 	if (!req.session.email) {//if not logged in, redirect to login page
-		res.sendFile(__dirname + '/public/login.html');
+		res.sendFile(__dirname + '/public/siteFrontEnd/login.html');
 		return;
 	}
-	res.sendFile(__dirname + '/public/index.html'); //if logged in send index.html
+	res.sendFile(__dirname + '/public/siteFrontEnd/index2.html'); //if logged in send index.html
 });
 
 
