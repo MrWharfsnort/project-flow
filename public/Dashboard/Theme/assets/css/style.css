@@ -1978,10 +1978,10 @@ ul li {
 /*LOCK SCREEN CONF*/
 #showtime {
 	width: 100%;
-	color: #fff;
+	color: #000033;
 	font-size: 50px;
-	margin-bottom: 30px;
-	margin-top: 250px;
+	margin-bottom: 10px;
+	margin-top: 200px;
 	display: inline-block;
 	text-align: center;
 	font-weight: 400;
