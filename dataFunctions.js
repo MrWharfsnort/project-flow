@@ -12,6 +12,7 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 			}
 			
 			Chunk.find({_id: { $in: chunkIds}}, (err, chunks) => {
+			console.log("From get getChunkHistory: " + chunks);
 				if(!cb) {
 					days(chunks);
 				} else{
@@ -44,11 +45,12 @@ module.exports = function dataFunctions(mongoose, User, Chunk, Interval) {
 					intervalIds.push(chunks[i].intervals[j]);
 				}
 			}
-
+console.log("chunks from interval history: " + chunks);
 			Interval.find({_id: {$in: intervalIds}}, (err, data) => {
 				if(err) {
 					return console.log("error from dataFunctions getIntervalHistory: " + err);
 				}
+				console.log("intervals data: " + data);
 				cb(data);
 			});
 
