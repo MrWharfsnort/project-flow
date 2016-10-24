@@ -117,7 +117,10 @@ app.get('/api/chunk/history', (req, res) => {//api for getting a history of chun
 });
 
 app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when user starts a timer for the day
-	var chunk = new Chunk();
+	var chunk = new Chunk({
+        caffeineTotal: 0,
+        snackTotal: 0
+    });
 
 	chunk.save((err) => {
 		if (err) {
@@ -131,9 +134,7 @@ app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when us
 
 		User.findOneAndUpdate(//this is to psuh the chunk id to the user's array of chunk ids
 			{
-                email: req.session.email,
-                caffeineTotal: 0,
-                snackTotal: 0
+                email: req.session.email
             },
 			{$push: {chunks: chunkId}},
 			(err, data) => {
