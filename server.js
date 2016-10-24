@@ -137,6 +137,10 @@ app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when us
 });
 
 app.get('/api/interval/history', (req, res) => {//api for getting a history of intervals
+    if (!req.session.email) {
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'})
+        return;s
+    }
     var historySpan = req.session.intervalCount || 7;//if intervalCount is not provided it will return a 7 day history of intervals
 
     dataFunctions.getIntervalHistory(req.session.email, historySpan, (data) => {
@@ -145,6 +149,11 @@ app.get('/api/interval/history', (req, res) => {//api for getting a history of i
 });
 
 app.post('/api/chunk/interval', (req, res) => {
+    if (!req.session.email) {
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'})
+        return;
+    }
+
 	dataFunctions.getChunkHistory(req.session.email, 7, function(chunks) {//get history to compare skill and challenge average to current values
 		var flow;
 		var sa = 0;
