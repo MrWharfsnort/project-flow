@@ -115,6 +115,10 @@ app.post('/api/register', (req, res) => {//api to register a new user
 });
 
 app.get('/api/chunk/history', (req, res) => {//api for getting a history of chunks
+    if (!req.session.email) {
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'});
+        return;
+    }
     var historySpan = req.session.chunkCount || 7;//history of chunkCount days or 7 days if chunkCount is not provided by the front end
 
    dataFunctions.getChunkHistory(req.session.email, historySpan, (data) => {
