@@ -16,35 +16,55 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 
 			function getchallArr (arr){
 				for(var i in arr){
-					challArr.push(arr[i].perceivedChallenge);
+					if (arr[i].perceivedChallenge){
+						challArr.push(arr[i].perceivedChallenge);
+					} else {
+						challArr.push(null);
+					}
 				}
 			}
 			getchallArr(intervalArray);
 
 			function getskillArr (arr){
 				for(var i in arr){
-					skillArr.push(arr[i].percievedSkill);
+					if (arr[i].percievedSkill){
+						skillArr.push(arr[i].percievedSkill);
+					} else {
+						skillArr.push(null);
+					}
 				}
 			}
 			getskillArr(intervalArray);
 
 			function getActivity (arr){
 				for(var i in arr){
-					activityLabel.push(arr[i].activity);
+					if (arr[i].activity) {
+						activityLabel.push(arr[i].activity);
+					} else {
+						activityLabel.push(null);
+					}
 				}
 			}
 			getActivity(intervalArray);
 
 			function getSnacks (arr){
 				for(var i =0; i <arr.length; i++){
-					snackArr.push(intervalArray[i].snack);
+					if (intervalArray[i].snack){
+						snackArr.push(intervalArray[i].snack);
+					} else {
+						snackArr.push(null);
+					}
 				}
 			}
 			getSnacks(intervalArray);
 
 			function getCaffeine (arr){
 				for(var i =0; i <arr.length; i++) {
-					caffeineArr.push(intervalArray[i].caffeine);
+					if (intervalArray[i].caffeine){
+						caffeineArr.push(intervalArray[i].caffeine);
+					} else {
+						caffeineArr.push(null);
+					}
 				}
 			}
 			getCaffeine(intervalArray);
@@ -63,14 +83,22 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 
 			function mealsEaten (arr){
 				for(var i in arr){
-					mealsArr.push(arr[i].mealsEaten);
+					if(arr[i].mealsEaten) {
+						mealsArr.push(arr[i].mealsEaten);
+					} else {
+						mealsArr.push(null);
+					}
 				}
 			}
 			mealsEaten(chunks);
 
 			function sleepSlept (arr){
 				for(var i in arr){
-					sleepArr.push(arr[i].hoursSlept);
+					if(arr[i].hoursSlept){
+						sleepArr.push(arr[i].hoursSlept);
+					} else {
+						sleepArr.push(null);
+					}
 				}
 			}
 			sleepSlept(chunks);
