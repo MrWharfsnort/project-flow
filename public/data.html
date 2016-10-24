@@ -15,5 +15,148 @@
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<<<<<<< Updated upstream
+=======
+    <script>
+/* jshint esversion: 6 */
+//data in here as an example, actually taken from our database
+//Object id fucks everything up.
+
+var chartTitle = "Last 7 Break Intervals Named by Activity";
+var xAxisLabelArray = ['Chunk1', 'Chunk2', 'Chunk3', 'Chunk4', 'Chunk5',"crazyArea"];
+var yAxisLabelArray = ['salvia','peyote','ergot bread','whippits'];
+
+
+var challArr = [];
+var skillArr = [];
+var activityLabel = [];
+var caffeineArr = [];
+var snackArr = [];
+var orderedArr = [];
+
+//i need to sort these by time
+console.log(intervalArray);
+
+function getchallArr (arr){
+    for(var i in arr){
+        challArr.push(arr[i].perceivedChallenge);
+    }      
+}
+getchallArr(intervalArray);
+
+function getskillArr (arr){
+    for(var i in arr){
+        skillArr.push(arr[i].percievedSkill);
+    }  
+}
+getskillArr(intervalArray);
+
+function getActivity (arr){
+    for(var i in arr){
+        activityLabel.push(arr[i].activity);
+    }     
+}
+getActivity(intervalArray);
+
+function getSnacks (arr){// for some reason bot caffeine and snacks arrays have more values should be there
+    for(var i =0; i <arr.length; i++){
+        if(arr[i].snack === false){
+            snackArr.push("null");
+        } snackArr.push("5");
+    }
+}
+getSnacks(intervalArray);
+function getCaffeine (arr){
+    for(var i =0; i <arr.length; i++){
+        if(arr[i].caffeine === false){
+            caffeineArr.push("null");
+        } caffeineArr.push("6");
+    }
+}
+getCaffeine(intervalArray);
+
+
+//the high chart function
+$(function () {
+    $('#container').highcharts({
+
+        title: {
+            text: chartTitle
+        } , 
+        yAxis: {
+            title: "Valbues" 
+        },
+        xAxis: {
+            categories: activityLabel
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Percieved Challenge',
+            data: challArr
+        }, {
+            name: 'Perceived Skill',
+            data: skillArr
+        }, {
+            name: 'Snacks',//not sure why they produce more values than in array
+            data: snackArr
+        }, {
+            name: 'Caffeine',//not sure why they produce more values than in array
+            data: caffeineArr
+        }]
+    });
+});
+
+var sleepArr = [];
+var mealsArr = [];
+var chunkOrder = [];
+//i need to sort these by time
+
+function getHoursSlept (arr){
+    for(var i in arr){
+        sleepArr.push(arr[i].hoursSlept);
+    }      
+}
+getHoursSlept(chunkArray);
+
+function getMealsEaten (arr){
+    for(var i in arr){
+        mealsArr.push(arr[i].mealsEaten);
+    }  
+}
+getMealsEaten(chunkArray);
+
+
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: chartTitle
+        } , 
+        yAxis: {
+            title: "Numbers" 
+        },
+        xAxis: {
+            categories: activityLabel
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Hours of Sleep',
+            data: sleepArr
+        }, {
+            name: 'Meals Eaten',
+            data: mealsArr
+        }]
+    });
+});
+
+
+    </script>
+>>>>>>> Stashed changes
 </body>
 </html>
