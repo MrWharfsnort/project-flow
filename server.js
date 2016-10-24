@@ -105,6 +105,10 @@ app.post('/api/register', (req, res) => {//api to register a new user
 });
 
 app.get('/api/chunk/history', (req, res) => {//api for getting a history of chunks
+    if (!req.session.email) {
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'});
+        return;
+    }
     var historySpan = req.session.chunkCount || 7;//history of chunkCount days or 7 days if chunkCount is not provided by the front end
 
    dataFunctions.getChunkHistory(req.session.email, historySpan, (data) => {
@@ -126,15 +130,11 @@ app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when us
 		var chunkId = chunk._id;
 
 		User.findOneAndUpdate(//this is to psuh the chunk id to the user's array of chunk ids
-<<<<<<< HEAD
-			{email: req.session.email, caffeineTotal: 0, snackTotal: 0},
-=======
 			{
                 email: req.session.email,
                 caffeineTotal: 0,
                 snackTotal: 0
             },
->>>>>>> ec55b2eba93fab4f5ec4d94d860dbbd9252dc0ec
 			{$push: {chunks: chunkId}},
 			(err, data) => {
 			if(err) {
@@ -213,15 +213,9 @@ app.post('/api/chunk/interval', (req, res) => {
 				{
 					$push: { intervals: interval._id },//push id of new interval to chunk's array of interval ids
 					$inc: {skillTotal: req.body.skill,//add the skill rating of current interval to chunk total
-<<<<<<< HEAD
-							challengeTotal: req.body.challenge, //add the challenge rating of curren interval to chunk total
-							caffeineTotal: req.body.caffeine,
-							snackTotal: req.body.food
-=======
-							challengeTotal: req.body.challenge,//add the challenge rating of curren interval to chunk total
-                            caffeineTotal: req.body.caffeine,
-                            snackTotal: req.body.food
->>>>>>> ec55b2eba93fab4f5ec4d94d860dbbd9252dc0ec
+                        challengeTotal: req.body.challenge,//add the challenge rating of curren interval to chunk total
+                        caffeineTotal: req.body.caffeine,
+                        snackTotal: req.body.food
 							}
 				},{new:true},
 				(err, data) => {
