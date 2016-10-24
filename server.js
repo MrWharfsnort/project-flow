@@ -126,7 +126,7 @@ app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when us
 		var chunkId = chunk._id;
 
 		User.findOneAndUpdate(//this is to psuh the chunk id to the user's array of chunk ids
-			{email: req.session.email},
+			{email: req.session.email, caffeineTotal: 0, snackTotal: 0},
 			{$push: {chunks: chunkId}},
 			(err, data) => {
 			if(err) {
@@ -142,8 +142,8 @@ app.post('/api/chunk/new', (req, res) => {//api that creates a new chunk when us
 
 app.get('/api/interval/history', (req, res) => {//api for getting a history of intervals
     if (!req.session.email) {
-        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'})
-        return;s
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'});
+        return;
     }
     var historySpan = req.session.intervalCount || 7;//if intervalCount is not provided it will return a 7 day history of intervals
 
@@ -154,7 +154,7 @@ app.get('/api/interval/history', (req, res) => {//api for getting a history of i
 
 app.post('/api/chunk/interval', (req, res) => {
     if (!req.session.email) {
-        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'})
+        res.send({status: 'error', message: 'I\'m afraid I can\'t allow that, dave.. You must be logged in'});
         return;
     }
 
@@ -205,7 +205,9 @@ app.post('/api/chunk/interval', (req, res) => {
 				{
 					$push: { intervals: interval._id },//push id of new interval to chunk's array of interval ids
 					$inc: {skillTotal: req.body.skill,//add the skill rating of current interval to chunk total
-							challengeTotal: req.body.challenge//add the challenge rating of curren interval to chunk total
+							challengeTotal: req.body.challenge, //add the challenge rating of curren interval to chunk total
+							caffeineTotal: req.body.caffeine,
+							snackTotal: req.body.food
 							}
 				},{new:true},
 				(err, data) => {
