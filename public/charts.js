@@ -51,8 +51,13 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 
 			function getMadFlo (arr){
 				for(var i in arr){
-					floArr.push(arr[i].flow);
+					if (arr[i].flow){
+						floArr.push(arr[i].flow);
+					} else {
+						floArr.push(null);
+					}
 				}  
+				console.log("floarr" + floArr);
 			}
 			getMadFlo(intervalArray);
 
