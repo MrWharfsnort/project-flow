@@ -41,23 +41,15 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 			getActivity(intervalArray);
 
 			function getSnacks (arr){
-					for(var i =0; i <arr.length; i++){
-						if(arr[i].snack === false){
-							snackArr.push("null");
-						} else {
-							snackArr.push("5");
-					}
+				for(var i =0; i <arr.length; i++){
+					snackArr.push(intervalArray[i].snack);
 				}
 			}
 			getSnacks(intervalArray);
 
 			function getCaffeine (arr){
-					for(var i =0; i <arr.length; i++) {
-						if(arr[i].caffeine === false) {
-							caffeineArr.push("null");
-						} else {
-							caffeineArr.push("6");
-					}
+				for(var i =0; i <arr.length; i++) {
+					caffeineArr.push(intervalArray[i].caffeine);
 				}
 			}
 			getCaffeine(intervalArray);
@@ -178,6 +170,23 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						type: 'column',
 						yAxis: 1,
 						data: challArr,
+						tooltip: {
+							valueSuffix: ' self reported'
+						}
+					}, {
+						name: 'Caffeine',
+						type: 'column',
+						yAxis: 1,
+						data: caffeineArr,
+						tooltip: {
+							valueSuffix: ' self reported'
+						}
+
+					}, {
+						name: 'Snacks',
+						type: 'column',
+						yAxis: 1,
+						data: snackArr,
 						tooltip: {
 							valueSuffix: ' self reported'
 						}
