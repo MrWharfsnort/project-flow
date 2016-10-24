@@ -3,11 +3,6 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 		$.get('/api/chunk/history', function(chunkRes) {
 			var chunks = chunkRes.chunks;
 
-		
-			var chartTitle = "Last 7 Break Intervals Named by Activity";
-			// var xAxisLabelArray = ['Chunk1', 'Chunk2', 'Chunk3', 'Chunk4', 'Chunk5',"crazyArea"];
-			// var yAxisLabelArray = ['salvia','peyote','ergot bread','whippits'];
-
 			//just for testing, delet later
 			var challArr = [];
 			var skillArr = [];
@@ -74,9 +69,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 				}
 			}
 			sleepSlept(chunks);
-
-
-
+			
 			console.log(caffeineArr);
 			console.log(snackArr);
 			console.log(mealsArr);
@@ -106,7 +99,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 							}
 						},
 						title: {
-							text: 'Perceived Blue',
+							text: 'floPoint® metric',
 							style: {
 								color: Highcharts.getOptions().colors[2]
 							}
@@ -116,7 +109,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 					}, { // Secondary yAxis
 						gridLineWidth: 0,
 						title: {
-							text: 'Percieved Red',
+							text: 'Bar Values',
 							style: {
 								color: Highcharts.getOptions().colors[0]
 							}
