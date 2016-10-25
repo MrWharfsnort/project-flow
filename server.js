@@ -37,7 +37,7 @@ app.get('/', (req, res) => {//get root of the site
 });
 
 app.get('/login', (req, res) => {
-	res.sendFile(__dirname + 'loginFE.html');
+	res.sendFile(__dirname + '/public/loginFE.html');
 });
 
 app.post('/api/login', (req, res) => {//login page
