@@ -217,6 +217,7 @@ app.post('/api/chunk/interval', (req, res) => {
 
 		interval.save((err) => {//save interval
 			if (err) {
+				console.log(err);
 				res.status(500);
 				res.send({message: "error saving interval"});
 				return;

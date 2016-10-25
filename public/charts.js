@@ -115,10 +115,10 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						zoomType: 'xy'
 					},
 					title: {
-						text: 'Find yo flo mo jo'
+						text: 'Your Flow'
 					},
 					subtitle: {
-						text: 'last seven intervals'
+						text: 'Your last 7-days logged'
 					},
 					xAxis: [{
 						categories: activityLabel,

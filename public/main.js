@@ -38,10 +38,10 @@ $(document).ready(function () {
 		
 		$.post("/api/chunk/done", survey, function(res){
 			if(res === "success") {
-				window.location = "/data";
+				window.location = "/dashboard";
 			}
 		});
-		window.location = "/dashboard";
+		
 	});
 
 

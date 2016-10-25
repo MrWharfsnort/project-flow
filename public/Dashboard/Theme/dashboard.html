@@ -116,7 +116,7 @@
 
               <!--CUSTOM CHART START -->
               <div class="border-head">
-                <h3>HOURS LOGGED</h3>
+                <h3>Flow</h3>
               </div>
               <div class="custom-bar-chart">
             </div>
@@ -128,7 +128,7 @@
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->
       <!--NEW EARNING STATS -->
-      <div class="panel terques-chart">
+<!--       <div class="panel terques-chart">
         <div class="panel-body">
           <div class="chart">
             <div class="centered">
@@ -139,11 +139,11 @@
             <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!--new earning end-->
 
       <!-- CALENDAR-->
-      <div id="calendar" class="mb">
+ <!--      <div id="calendar" class="mb">
         <div class="panel green-panel no-margin">
           <div class="panel-body">
             <div id="date-popover" class="popover top" style="cursor: pointer; disadding: block; margin-left: 33%; margin-top: -50px; width: 175px;">
@@ -154,10 +154,10 @@
             <div id="my-calendar"></div>
           </div>
         </div>
-      </div><!-- / calendar -->
+      </div>
 
-    </div><!-- /col-lg-3 -->
-  </div><! --/row -->
+    </div>--><!-- /col-lg-3 -->
+  </div><!--/row -->
 </section>
 </section>
 </div>
@@ -391,13 +391,13 @@
           <br>
           Have you caffinated since your last break?
           <select name="caffeine" id="caffeine" class="form-control">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
           </select>
           Have you eaten since your last break?
           <select name="food" id="food" class="form-control">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
           </select>
         </div>
         <button id="endBreak" class="btn-default btn btn-default">Back to Work</button>
@@ -527,6 +527,7 @@
         var to = $("#" + id).data("to");
         console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
       }
+  });
     </script>
 
 
