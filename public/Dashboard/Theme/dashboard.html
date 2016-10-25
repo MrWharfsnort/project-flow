@@ -31,8 +31,9 @@
       <![endif]-->
       <!-- <script src="../../login.js"></script> -->
       <!-- <script src="./Dashboard/Theme/dashboard.js"></script> -->
-      <script src="../../main.js"></script>
       <script src="../../timer.js"></script>
+      <script src="../../main.js"></script>
+
       <script src="../../charts.js"></script>
 
 
@@ -119,11 +120,13 @@
                 <h3>Flow</h3>
               </div>
               <div class="custom-bar-chart">
-            </div>
+             </div>
+
+            
 
             </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
-
+ <div class="custom-bar-chart2"></div>
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->
@@ -536,19 +539,19 @@
 
     <!-- THIS IS THE JAVASCRIPT WE ARE WRITING FOR THIS PAGE -->
     <script type="text/javascript">
-      $("#showTimer").click(function (evt) {
-        getTime();
-    startTime();  //calls startTime in timer.js
-    $("#dashBody").css("display", "none"); //hide start timer button
-    $("#showTimer").css("display", "none");
-    $("#timeBody").css("display", "block"); //show stop timer button
-    $("#logout").css("display", "none");
-    $("#endTimer").click(endTime); //add click listener
-    $("#endTimer").css("display", "inline");
-    $.post("/api/chunk/new", {}, function(res){
-      chunkId = res.chunkId;
-    });
-  });
+  // $("#showTimer").click(function (evt) {
+  //     getTime();
+  //   startTime();  //calls startTime in timer.js
+  //   $("#dashBody").css("display", "none"); //hide start timer button
+  //   $("#showTimer").css("display", "none");
+  //   $("#timeBody").css("display", "block"); //show stop timer button
+  //   $("#logout").css("display", "none");
+  //   $("#endTimer").click(endTime); //add click listener
+  //   $("#endTimer").css("display", "inline");
+  //   $.post("/api/chunk/new", {}, function(res){
+  //     chunkId = res.chunkId;
+  //   });
+  // });
 
 $("#endBreak").click(function(){ //click listener to end break on break div
   getTime();

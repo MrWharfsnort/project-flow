@@ -263,6 +263,7 @@ app.post('/api/chunk/interval', (req, res) => {
 });
 
 app.post('/api/chunk/done', (req, res) => {//when the chunk is finished the final survey is added to the chunk
+	console.log(req.body);
 	Chunk.findOneAndUpdate(
 		{_id: req.body.chunkId}, {
 			timeSpent: req.body.timeSpent,

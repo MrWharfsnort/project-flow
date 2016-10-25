@@ -1,5 +1,5 @@
+var chunkId = 0;
 $(document).ready(function () {
-	var chunkId;
 
 	// $("#startTimer").click(function (evt) {
 	// 	startTime();  //calls startTime in timer.js
@@ -10,6 +10,21 @@ $(document).ready(function () {
 	// 		chunkId = res.chunkId;
 	// 	});
 	// });
+
+  $("#showTimer").click(function (evt) {
+    getTime();
+    startTime();  //calls startTime in timer.js
+    $("#dashBody").css("display", "none"); //hide start timer button
+    $("#showTimer").css("display", "none");
+    $("#timeBody").css("display", "block"); //show stop timer button
+    $("#logout").css("display", "none");
+    $("#endTimer").click(endTime); //add click listener
+    $("#endTimer").css("display", "inline");
+    $.post("/api/chunk/new", {}, function(res){
+      console.log(res);
+      chunkId = res.chunkId;
+    });
+  });
 
 	$("#logout").click(function() {
 		$.post("/api/logout", function (res) {
@@ -38,6 +53,7 @@ $(document).ready(function () {
 		
 		$.post("/api/chunk/done", survey, function(res){
 			if(res === "success") {
+				console.log(res);
 				window.location = "/dashboard";
 			}
 		});

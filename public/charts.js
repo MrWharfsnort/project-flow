@@ -13,6 +13,9 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 			var mealsArr = [];
 			var sleepArr = [];
 			var taskLength = [];
+			var dateArr = [];
+
+
 
 			function getchallArr (arr){
 				for(var i in arr){
@@ -115,7 +118,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						zoomType: 'xy'
 					},
 					title: {
-						text: 'Your Flow'
+						text: 'Flow at Break Times'
 					},
 					subtitle: {
 						text: 'Your last 7-days logged'
@@ -182,9 +185,9 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 					legend: {
 						layout: 'vertical',
 						align: 'left',
-						x: 80,
+						x: 50,
 						verticalAlign: 'top',
-						y: 55,
+						y: 0,
 						floating: true,
 						backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#ffefd5'
 					},
@@ -222,7 +225,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						tooltip: {
 							valueSuffix: ' self reported'
 						}
-					}, {
+					}, /*{
 						name: 'Hours Slept',
 						type: 'column',
 						yAxis: 1,
@@ -240,7 +243,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 							valueSuffix: ' self reported'
 						}
 
-					},  {
+					},*/  {
 						name: 'Flo',
 						type: 'spline',
 						lineWidth: 10,
@@ -250,6 +253,17 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 						}
 					}]
 			});
+
+
+
+
+
+
 		});
 	});
 });
+
+
+
+
+
