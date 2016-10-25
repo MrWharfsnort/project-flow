@@ -246,7 +246,7 @@ $.get('/api/interval/history', {intervalCount: 7}, function(res) {
 					},*/  {
 						name: 'Flo',
 						type: 'spline',
-						lineWidth: 10,
+						lineWidth: 2,
 						data: floArr,
 						tooltip: {
 							valueSuffix: ' floPoint®'
