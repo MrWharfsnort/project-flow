@@ -61,11 +61,11 @@
 	});
 		
 // Tooltip
-	$('.social_buttons, .client').tooltip({
+	$('.social_buttons, .coffee, .client').tooltip({
 		selector: "a[data-toggle=tooltip]"
 	})
 	
-	$('.social_buttons, .client').tooltip()
+	$('.social_buttons, .coffee, .client').tooltip()
 	
 // prettyPhoto
 	jQuery(document).ready(function(){
