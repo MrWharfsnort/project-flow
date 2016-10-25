@@ -25,7 +25,7 @@ $(document).ready(function(){
 			email: email
 		}, function(response){
 			if(response.status === "success") { //if logged in
-			window.location = '/';
+			window.location = '/dashboard';
          }
 		});
 	});
