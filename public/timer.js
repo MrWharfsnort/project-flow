@@ -6,7 +6,7 @@ var workTime = 0;
 var breakCount = 0;
 var startDate;
 var t;
-var initialBreakInterval = 60000;//2700000;
+var initialBreakInterval = 900000;//2700000;
 
 
 function startTime() { //start the timer
