@@ -4,10 +4,22 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
-var PORT = process.env.port || 8001;
+
+var uristring = 
+  process.env.MONGODB_URI || 
+  'mongodb://<dbuser>:<dbpassword>@ds127948.mlab.com:27948/heroku_q79xlp0l';
+
+var PORT = process.env.PORT || 8001;
 
 mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
-mongoose.connect("mongodb://localhost");
+
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 // pull in the user model
 var Interval = require("./intervalSurveySchema.js")(mongoose);
