@@ -4,7 +4,7 @@ var session = require('express-session');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
-var PORT = process.env.port || 8001;
+var $PORT = process.env.PORT || 8001;
 var uriString = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
@@ -306,8 +306,8 @@ app.use((err, req, res, next) => {
 });
 
 // start the server
-app.listen(PORT, () => {
-	console.info('Server started on http://localhost:' + PORT);
+app.listen($PORT, () => {
+	console.info('Server started on http://localhost:' + $PORT);
 });
 
 
