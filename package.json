@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently -p \"[{name}]\" -n \"MONGO,HTTP\" -c \"bgBlue.bold,bgMagenta.bold\" \"mongod --dbpath ./data\" \"nodemon server.js\"",
+    "start": "node server.js,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
