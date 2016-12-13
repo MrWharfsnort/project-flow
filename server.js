@@ -7,7 +7,7 @@ var app = express();
 var PORT = process.env.port || 8001;
 
 mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
-mongoose.connect("mongodb://heroku_4m3qsrhd:heroku_4m3qsrhd@ds133418.mlab.com:33418/heroku_4m3qsrhd");
+mongoose.connect(MONGODB_URI);
 
 // pull in the user model
 var Interval = require("./intervalSurveySchema.js")(mongoose);
