@@ -5,9 +5,16 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var app = express();
 var PORT = process.env.port || 8001;
+var uriString = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise; // this silences the error about mongo's mpromise library
-mongoose.connect(MONGODB_URI);
+mongoose.connect(uriString, (err, res) => {
+    if (err) {
+        console.log('Error connecting to mLab DB');
+    } else {
+        console.log('Connected to ' + uriString);
+    }
+});
 
 // pull in the user model
 var Interval = require("./intervalSurveySchema.js")(mongoose);
